@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import TodoDeleteContainer from '../containers/TodoDeleteContainer'
 
 class TodoList extends Component {
-    renderTodos = ({ todos, onTodoClick }) => {
+    renderTodos = ({ todos }) => {
         return todos.map(todo => (
             <li className='list-group-item' key={todo.id} >
                 {todo.text}
-                <button onClick={() => onTodoClick(todo.id)} />
+                <TodoDeleteContainer id={todo.id} />
             </li>
         ))
     }

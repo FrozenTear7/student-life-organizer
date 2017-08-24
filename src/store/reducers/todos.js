@@ -1,7 +1,7 @@
 import {ADD_TODO, EDIT_TODO, DELETE_TODO, TOGGLE_TODO} from '../../constants/index'
 
 const INITIAL_STATE = {
-    todos: [{id: 1, text: 'Add new todos!', completed: false}]
+    todos: []
 }
 
 const todos = (state = INITIAL_STATE, action) => {
