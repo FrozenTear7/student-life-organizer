@@ -10,7 +10,8 @@
     "react-scripts": "1.0.11",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "redux": "latest"
+    "redux": "latest",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
