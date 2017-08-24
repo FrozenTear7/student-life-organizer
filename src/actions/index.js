@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TODO, DELETE_TODO } from '../constants/index'
+import { ADD_TODO, EDIT_TODO, DELETE_TODO, TOGGLE_TODO } from '../constants/index'
 
 let nextTodoId = 0
 
@@ -12,4 +12,14 @@ export const editTodo = (id, text) => ({
     type: EDIT_TODO,
     id,
     text
+})
+
+export const toggleTodo = (id) => ({
+    type: TOGGLE_TODO,
+    id
+})
+
+export const deleteTodo = (id) => ({
+    type: DELETE_TODO,
+    id
 })
