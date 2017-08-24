@@ -1,47 +1,29 @@
 import {ADD_TODO, EDIT_TODO, DELETE_TODO, TOGGLE_TODO} from '../../constants/index'
 
 const INITIAL_STATE = {
-    todos: []
+    todos: [{id: 1, text: 'Add new todos!', completed: false}]
 }
-
-const addTodo = (id, text) => ({
-    id,
-    text,
-    completed: false
-})
-
-const toggleTodo = (state, id) => ({
-    state: todos.map(todo =>
-    (todo.id === id)
-        ? {...todo, completed: !todo.completed}
-        : todo
-    )
-})
-
-const editTodo = (state, id, newText) => ({
-    state: todos.map(todo =>
-        (todo.id === id)
-            ? {...todo, text: newText}
-            : todo
-    )
-})
-
-const deleteTodo = (state, id) => ({
-    state: todos.filter(todo =>
-        (todo.id !== id)
-    )
-})
 
 const todos = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return [...state, addTodo(action.id, action.text)]
+            return { ...state, todos: [...state.todos, { id: action.id, text: action.text, completed: false }] }
         case TOGGLE_TODO:
-            return toggleTodo(state, action.id)
+            return state.todos.map(todo =>
+                (todo.id === action.id)
+                    ? {...todo, completed: !todo.completed}
+                    : todo
+            )
         case EDIT_TODO:
-            return editTodo(state, action.id, action.text)
+            return state.todos.map(todo =>
+                (todo.id === action.id)
+                    ? {...todo, text: action.text}
+                    : todo
+            )
         case DELETE_TODO:
-            return deleteTodo(state, action.id)
+            return state.todos.filter(todo =>
+                (todo.id !== action.id)
+            )
         default:
             return state
     }

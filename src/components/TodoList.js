@@ -6,16 +6,11 @@ class TodoList extends Component {
     }
 
     renderTodos = (todos) => {
-        if (!todos.length) {
-            return (
-                <div> Add new todos! </div>
-            )
-        }
-        return todos.map((todo, i) => (
+        return todos.map(todo => (
             <li className='list-group-item' key={todo.id} >
                 <div className='row'>
                     <div className='col-md-1'>
-                        <strong>{i + 1}</strong>
+                        <strong>{todo.text}</strong>
                     </div>
                 </div>
             </li>
