@@ -9,17 +9,21 @@ const todos = (state = INITIAL_STATE, action) => {
         case ADD_TODO:
             return { ...state, todos: [...state.todos, { id: action.id, text: action.text, completed: false }] }
         case TOGGLE_TODO:
-            return state.todos.map(todo =>
-                (todo.id === action.id)
-                    ? {...todo, completed: !todo.completed}
-                    : todo
-            )
+            return {
+                ...state, todos: state.todos.map(todo =>
+                    (todo.id === action.id)
+                        ? {...todo, completed: !todo.completed}
+                        : todo
+                )
+            }
         case EDIT_TODO:
-            return state.todos.map(todo =>
-                (todo.id === action.id)
-                    ? {...todo, text: action.text}
-                    : todo
-            )
+            return {
+                ...state, todos: state.todos.map(todo =>
+                    (todo.id === action.id)
+                        ? {...todo, text: action.text}
+                        : todo
+                )
+            }
         case DELETE_TODO:
             return {
                 ...state, todos: state.todos.filter(todo =>
