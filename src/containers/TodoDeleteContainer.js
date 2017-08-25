@@ -3,12 +3,11 @@ import { deleteTodo } from '../actions/index'
 import TodoDelete from '../components/TodoDelete'
 
 const mapStateToProps = (state, ownProps) => ({
-    todoId: ownProps.id,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onDeleteClick: (id) => {
-        dispatch(deleteTodo(id))
+    onDeleteClick: () => {
+        dispatch(deleteTodo(ownProps.id))
     }
 })
 

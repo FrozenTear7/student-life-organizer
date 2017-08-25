@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 
 class TodoDelete extends Component {
     render () {
-        const { todoId, onDeleteClick } = this.props
+        const { onDeleteClick } = this.props
 
         return (
             <div className='container'>
                 <button
-                    onClick={() => onDeleteClick(todoId)}
+                    onClick={() => onDeleteClick()}
                     className='btn btn-danger'
                 >
                     Delete todo

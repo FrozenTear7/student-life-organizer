@@ -1,7 +1,7 @@
 import {ADD_TODO, EDIT_TODO, DELETE_TODO, TOGGLE_TODO} from '../../constants/index'
 
 const INITIAL_STATE = {
-    todos: []
+    todos: [{ id: 69, text: 'Topkeke', completed: false }]
 }
 
 const todos = (state = INITIAL_STATE, action) => {
@@ -21,9 +21,11 @@ const todos = (state = INITIAL_STATE, action) => {
                     : todo
             )
         case DELETE_TODO:
-            return state.todos.filter(todo =>
-                (todo.id !== action.id)
-            )
+            return {
+                ...state, todos: state.todos.filter(todo =>
+                    (todo.id !== action.id)
+                )
+            }
         default:
             return state
     }
