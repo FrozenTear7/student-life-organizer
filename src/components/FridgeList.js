@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TodoDeleteContainer from '../containers/TodoDeleteContainer'
 import TodoCompleteContainer from '../containers/TodoCompleteContainer'
-import TodoUpdateContainer from '../containers/TodoUpdateContainer'
 
 class TodoList extends Component {
     renderTodos = ( todos ) => {
@@ -12,7 +11,6 @@ class TodoList extends Component {
                 {todo.text}
                 <TodoDeleteContainer id={todo.id} />
                 <TodoCompleteContainer id={todo.id} />
-                <TodoUpdateContainer id={todo.id} text={todo.text} />
             </li>
         ))
     }
