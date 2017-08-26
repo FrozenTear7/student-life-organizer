@@ -1,7 +1,7 @@
 import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO } from '../../constants/index'
 
 const INITIAL_STATE = {
-    todos: [{ id: 69, text: 'Topkeke', completed: false, update: false }]
+    todos: [{ id: 69, text: 'Topkeke', completed: false, edit: false }]
 }
 
 const todos = (state = INITIAL_STATE, action) => {
@@ -34,7 +34,7 @@ const todos = (state = INITIAL_STATE, action) => {
             return {
                 ...state, todos: state.todos.map(todo =>
                     (todo.id === action.id)
-                        ? {...todo, update: !todo.update}
+                        ? {...todo, edit: !todo.edit}
                         : todo
                 )
             }

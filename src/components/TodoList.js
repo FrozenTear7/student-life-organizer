@@ -1,34 +1,76 @@
-import React, { Component } from 'react'
-import TodoDeleteContainer from '../containers/TodoDeleteContainer'
-import TodoCompleteContainer from '../containers/TodoCompleteContainer'
-import TodoUpdateContainer from '../containers/TodoUpdateContainer'
+import React from 'react'
+import { connect } from 'react-redux'
+import { updateTodo, editTodo } from '../actions/index'
 
-class TodoList extends Component {
-    renderTodos = ( todos ) => {
-        return todos.map(todo => (
-            <li className='list-group-item' key={todo.id} style={{
-                textDecoration: todo.completed ? 'line-through' : 'none' }}
-            >
-                {todo.text}
-                <TodoDeleteContainer id={todo.id} />
-                <TodoCompleteContainer id={todo.id} />
-                <TodoUpdateContainer id={todo.id} text={todo.text} />
-            </li>
-        ))
-    }
+let input
 
-    render () {
-        const { todos } = this.props
-
-        return (
-            <div className='container'>
-                <h2>Todos</h2>
-                <ul className='list-group'>
-                    {this.renderTodos(todos)}
-                </ul>
-            </div>
+let TodoList = ({ dispatch, onTodoSubmit, todos, onTodoEdit, onTodoDelete, onTodoComplete }) => (
+    <ul>
+    { todos.map(todo => {
+        if(!todo.edit) {
+            return (
+                <li className='list-group-item' key={todo.id} style={{
+                    textDecoration: todo.completed ? 'line-through' : 'none'
+                }}
+                >
+                    <div className='container'>
+                        {todo.text}
+                        <br/>
+                        <button
+                            onClick={() => onTodoEdit(todo.id)}
+                            className='btn btn-secondary'
+                        >
+                            Edit
+                        </button>
+                        <button
+                            onClick={() => onTodoDelete(todo.id)}
+                            className='btn btn-secondary'
+                        >
+                            Delete
+                        </button>
+                        <button
+                            onClick={() => onTodoComplete(todo.id)}
+                            className='btn btn-secondary'
+                        >
+                            Complete
+                        </button>
+                    </div>
+                </li>
         )
-    }
-}
+        } else {
+            return (
+                <li className='list-group-item' key={todo.id}>
+                    <form onSubmit={e => {
+                        e.preventDefault()
+                        if (!input.value.trim()) {
+                            return
+                        }
+                        dispatch(updateTodo(todo.id, input.value))
+                        dispatch(editTodo(todo.id))
+                        input.value = ''
+                    }}>
+                        <input
+                            value={todo.text}
+                            ref={node => {
+                            input = node
+                        }} />
+                        <button type="submit">
+                            Update Todo
+                        </button>
+                        <button
+                            onClick={() => onTodoEdit(todo.id)}
+                            className='btn btn-secondary'
+                        >
+                            Go back
+                        </button>
+                    </form>
+                </li>
+            )
+        }
+    })}
+    </ul>
+)
+
+TodoList = connect()(TodoList)
 
 export default TodoList
