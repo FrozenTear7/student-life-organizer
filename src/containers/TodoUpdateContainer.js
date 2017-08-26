@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
-import { updateTodo } from '../actions/index'
-import TodoDelete from '../components/TodoDelete'
+import { editTodo } from '../actions/index'
+import TodoEdit from '../components/TodoEdit'
 
 const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onUpdateClick: () => {
-        dispatch(updateTodo(ownProps.id, ownProps.text))
+    onEditClick: () => {
+        dispatch(editTodo(ownProps.id))
     }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoDelete)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoEdit)

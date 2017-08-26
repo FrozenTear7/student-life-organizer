@@ -1,30 +1,44 @@
 import React, { Component } from 'react'
-import TodoDeleteContainer from '../containers/TodoDeleteContainer'
-import TodoCompleteContainer from '../containers/TodoCompleteContainer'
-import TodoUpdateContainer from '../containers/TodoUpdateContainer'
 
 class TodoList extends Component {
-    renderTodos = ( todos ) => {
-        return todos.map(todo => (
-            <li className='list-group-item' key={todo.id} style={{
-                textDecoration: todo.completed ? 'line-through' : 'none' }}
-            >
-                {todo.text}
-                <TodoDeleteContainer id={todo.id} />
-                <TodoCompleteContainer id={todo.id} />
-                <TodoUpdateContainer id={todo.id} text={todo.text} />
-            </li>
-        ))
-    }
-
     render () {
-        const { todos } = this.props
+        const { todos, onEditClick, onDeleteClick, onCompleteClick } = this.props
 
         return (
             <div className='container'>
                 <h2>Todos</h2>
                 <ul className='list-group'>
-                    {this.renderTodos(todos)}
+                    {todos.map(todo => (
+                    <li className='list-group-item' key={todo.id} style={{
+                        textDecoration: todo.completed ? 'line-through' : 'none' }}
+                    >
+                        {todo.text}
+                        <div className='container'>
+                            <button
+                                onClick={onEditClick}
+                                className='btn btn-danger'
+                            >
+                                Edit todo
+                            </button>
+                        </div>
+                        <div className='container'>
+                            <button
+                                onClick={onDeleteClick}
+                                className='btn btn-danger'
+                            >
+                                Delete todo
+                            </button>
+                        </div>
+                        <div className='container'>
+                            <button
+                                onClick={onCompleteClick}
+                                className='btn btn-danger'
+                            >
+                                Complete todo
+                            </button>
+                        </div>
+                    </li>
+                    ))}
                 </ul>
             </div>
         )

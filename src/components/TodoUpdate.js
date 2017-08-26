@@ -1,20 +1,30 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { updateTodo } from '../actions'
 
-class TodoUpdate extends Component {
-    render () {
-        const { onUpdateClick } = this.props
+let UpdateTodo = ({ todos, dispatch }) => {
+    let input
 
-        return (
-            <div className='container'>
-                <button
-                    onClick={() => onUpdateClick()}
-                    className='btn btn-danger'
-                >
-                    Update todo
+    return (
+        <div>
+            <form onSubmit={e => {
+                e.preventDefault()
+                if (!input.value.trim()) {
+                    return
+                }
+                dispatch(updateTodo(todo.id, input.value))
+                input.value = ''
+            }}>
+                <input ref={node => {
+                    input = node
+                }} />
+                <button type="submit">
+                    Add Todo
                 </button>
-            </div>
-        )
-    }
+            </form>
+        </div>
+    )
 }
+UpdateTodo = connect()(UpdateTodo)
 
-export default TodoUpdate
+export default UpdateTodo
