@@ -11,7 +11,7 @@ const submitTodo = (values, dispatch) => {
 
 let AddTodo = ({ handleSubmit }) => {
     return (
-        <div>
+        <div className='container'>
             <form onSubmit={handleSubmit(submitTodo)} >
                 <Field
                     name='name'
@@ -19,7 +19,10 @@ let AddTodo = ({ handleSubmit }) => {
                     label='New Todo'
                     component={renderField}
                 />
-                <button type='submit'>
+                <button
+                    type='submit'
+                    className='btn btn-success'
+                >
                     Add Todo
                 </button>
             </form>

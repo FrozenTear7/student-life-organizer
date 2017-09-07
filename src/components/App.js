@@ -3,6 +3,7 @@ import AddTodoContainer from '../containers/AddTodoContainer'
 import TodoListContainer from '../containers/TodoListContainer'
 import FridgeListContainer from '../containers/FridgeListContainer'
 import AddFridgeItemContainer from '../containers/AddFridgeItemContainer'
+import DailySpendingsContainer from '../containers/DailySpendingsContainer'
 
 const App = () => (
     <div className='container-fluid'>
@@ -14,20 +15,25 @@ const App = () => (
 
         <table>
             <th>
-                <tr>
+                <th>
                     <AddTodoContainer />
-                </tr>
-                <tr>
+                </th>
+                <th>
+                    <br/>
                     <TodoListContainer />
-                </tr>
+                </th>
             </th>
             <th>
-                <tr>
+                <th>
                     <AddFridgeItemContainer/>
-                </tr>
-                <tr>
+                </th>
+                <th>
+                    <br/>
                     <FridgeListContainer />
-                </tr>
+                </th>
+            </th>
+            <th>
+                <DailySpendingsContainer />
             </th>
         </table>
     </div>

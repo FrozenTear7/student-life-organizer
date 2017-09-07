@@ -21,19 +21,19 @@ let Todo = ({ handleSubmit, todo, onTodoEdit, onTodoDelete, onTodoComplete }) =>
                     <br/>
                     <button
                         onClick={() => onTodoEdit(todo.id)}
-                        className='btn btn-secondary'
+                        className='btn btn-info'
                     >
                         Edit
                     </button>
                     <button
                         onClick={() => onTodoDelete(todo.id)}
-                        className='btn btn-secondary'
+                        className='btn btn-danger'
                     >
                         Delete
                     </button>
                     <button
                         onClick={() => onTodoComplete(todo.id)}
-                        className='btn btn-secondary'
+                        className='btn btn-success'
                     >
                         Complete
                     </button>
@@ -50,7 +50,10 @@ let Todo = ({ handleSubmit, todo, onTodoEdit, onTodoDelete, onTodoComplete }) =>
                         label='New Todo text'
                         component={renderField}
                     />
-                    <button type='submit'>
+                    <button
+                        type='submit'
+                        className='btn btn-success'
+                    >
                         Update Todo
                     </button>
                     <button

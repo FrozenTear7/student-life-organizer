@@ -11,7 +11,7 @@ const submitFridgeItem = (values, dispatch) => {
 
 let AddFridgeItem = ({ handleSubmit }) => {
     return (
-        <div>
+        <div className='container'>
             <form onSubmit={handleSubmit(submitFridgeItem)} >
                 <Field
                     name='name'
@@ -25,7 +25,10 @@ let AddFridgeItem = ({ handleSubmit }) => {
                     label='Amount'
                     component={renderField}
                 />
-                <button type='submit'>
+                <button
+                    type='submit'
+                    className='btn btn-success'
+                >
                     Add Fridge Item
                 </button>
             </form>

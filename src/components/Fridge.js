@@ -16,17 +16,17 @@ let Fridge = ({ handleSubmit, fridgeItem, onFridgeItemEdit, onFridgeItemDelete }
                 <div className='container'>
                     {fridgeItem.text}
                     <br/>
-                    {fridgeItem.amount}
+                    Amount: {fridgeItem.amount}
                     <br/>
                     <button
                         onClick={() => onFridgeItemEdit(fridgeItem.id)}
-                        className='btn btn-secondary'
+                        className='btn btn-info'
                     >
                         Edit
                     </button>
                     <button
                         onClick={() => onFridgeItemDelete(fridgeItem.id)}
-                        className='btn btn-secondary'
+                        className='btn btn-danger'
                     >
                         Delete
                     </button>
@@ -49,7 +49,10 @@ let Fridge = ({ handleSubmit, fridgeItem, onFridgeItemEdit, onFridgeItemDelete }
                         label='Amount'
                         component={renderField}
                     />
-                    <button type='submit'>
+                    <button
+                        type='submit'
+                        className='btn btn-success'
+                    >
                         Edit Fridge Item
                     </button>
                     <button
