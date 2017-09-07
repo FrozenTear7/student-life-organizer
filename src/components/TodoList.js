@@ -1,10 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { updateTodo, editTodo } from '../actions/index'
+import renderField from './renderField'
+import { reduxForm, Field } from 'redux-form'
 
-let input
+const submitTodo = (values, dispatch, props) => {
+    dispatch(updateTodo(props.id, values.name))
+    dispatch(editTodo(props.id))
+}
 
-let TodoList = ({ dispatch, onTodoSubmit, todos, onTodoEdit, onTodoDelete, onTodoComplete }) => (
+let TodoList = ({ handleSubmit, dispatch, onTodoSubmit, todos, onTodoEdit, onTodoDelete, onTodoComplete }) => (
     <ul>
     { todos.map(todo => {
         if(!todo.edit) {
@@ -40,21 +45,14 @@ let TodoList = ({ dispatch, onTodoSubmit, todos, onTodoEdit, onTodoDelete, onTod
         } else {
             return (
                 <li className='list-group-item' key={todo.id}>
-                    <form onSubmit={e => {
-                        e.preventDefault()
-                        if (!input.value.trim()) {
-                            return
-                        }
-                        dispatch(updateTodo(todo.id, input.value))
-                        dispatch(editTodo(todo.id))
-                        input.value = ''
-                    }}>
-                        <input
-                            value={todo.text}
-                            ref={node => {
-                            input = node
-                        }} />
-                        <button type="submit">
+                    <form onSubmit={handleSubmit(submitTodo)} >
+                        <Field
+                            name='name'
+                            type='text'
+                            label='Name'
+                            component={renderField}
+                        />
+                        <button type='submit'>
                             Update Todo
                         </button>
                         <button
@@ -70,6 +68,10 @@ let TodoList = ({ dispatch, onTodoSubmit, todos, onTodoEdit, onTodoDelete, onTod
     })}
     </ul>
 )
+
+TodoList = reduxForm({
+    form: 'TodoList'
+})(TodoList)
 
 TodoList = connect()(TodoList)
 
