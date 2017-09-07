@@ -16,7 +16,7 @@ let AddTodo = ({ handleSubmit }) => {
                 <Field
                     name='name'
                     type='text'
-                    label='Name'
+                    label='New Todo'
                     component={renderField}
                 />
                 <button type='submit'>

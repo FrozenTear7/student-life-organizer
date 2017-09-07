@@ -16,7 +16,7 @@ let AddFridgeItem = ({ handleSubmit }) => {
                 <Field
                     name='name'
                     type='text'
-                    label='Text'
+                    label='New Fridge Item'
                     component={renderField}
                 />
                 <Field
