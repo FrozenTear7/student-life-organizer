@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import renderField from './renderField'
 
 const submitTodo = (values, dispatch) => {
-    dispatch(addTodo(values.name))
+    dispatch(addTodo(values.text))
     dispatch(reset('AddTodo'))
 }
 
@@ -14,7 +14,7 @@ let AddTodo = ({ handleSubmit }) => {
         <div className='container'>
             <form onSubmit={handleSubmit(submitTodo)} >
                 <Field
-                    name='name'
+                    name='text'
                     type='text'
                     label='New Todo'
                     component={renderField}

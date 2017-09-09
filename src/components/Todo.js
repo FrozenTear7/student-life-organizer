@@ -1,16 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateTodo, resetEdit } from '../actions/index'
+import { updateTodo, todoResetEdit } from '../actions/index'
 import renderField from './renderField'
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field, reset } from 'redux-form'
 
 const submitTodo = (values, dispatch, props) => {
-    dispatch(updateTodo(props.todo.id, values.name))
-    dispatch(resetEdit())
+    dispatch(updateTodo(props.todo.id, values.text))
+    dispatch(todoResetEdit())
+    dispatch(reset('Todo'))
 }
 
 let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodoEdit, onTodoComplete }) => {
-    if(todo.id !== editedTodo.id) {
+    if(todo.id !== editedTodo.todo.id) {
         return (
             <li className='list-group-item' key={todo.id} style={{
                 textDecoration: todo.completed ? 'line-through' : 'none'
@@ -20,7 +21,7 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                     {todo.text}
                     <br/>
                     <button
-                        onClick={() => onTodoEdit(todo.id)}
+                        onClick={() => onTodoEdit(todo)}
                         className='btn btn-info'
                     >
                         Edit
@@ -45,7 +46,7 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
             <li className='list-group-item' key={todo.id}>
                 <form onSubmit={handleSubmit(submitTodo)} >
                     <Field
-                        name='name'
+                        name='text'
                         type='text'
                         label='New Todo text'
                         component={renderField}
@@ -57,7 +58,7 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                         Update Todo
                     </button>
                     <button
-                        onClick={() => onTodoGoBack()}
+                        onClick={() => onTodoGoBack(todo)}
                         className='btn btn-secondary'
                     >
                         Go back
@@ -72,6 +73,10 @@ Todo = reduxForm({
     form: 'Todo'
 })(Todo)
 
-Todo = connect()(Todo)
+Todo = connect(
+    state => ({
+        initialValues: state.todos.editedTodo.todo
+    })
+)(Todo)
 
 export default Todo

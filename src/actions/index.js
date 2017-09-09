@@ -27,12 +27,12 @@ export const deleteTodo = (id) => ({
     id
 })
 
-export const editTodo = (id) => ({
+export const editTodo = (todo) => ({
     type: EDIT_TODO,
-    id
+    todo
 })
 
-export const resetEdit = () => ({
+export const todoResetEdit = () => ({
     type: RESET_EDIT
 })
 
@@ -54,13 +54,16 @@ export const updateFridgeItem = (id, text, amount) => ({
     amount
 })
 
-
 export const deleteFridgeItem = (id) => ({
     type: DELETE_FRIDGE_ITEM,
     id
 })
 
-export const editFridgeItem = (id) => ({
+export const editFridgeItem = (fridgeItem) => ({
     type: EDIT_FRIDGE_ITEM,
-    id
+    fridgeItem
+})
+
+export const fridgeItemResetEdit = () => ({
+    type: RESET_EDIT
 })

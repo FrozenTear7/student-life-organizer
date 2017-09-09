@@ -2,7 +2,7 @@ import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT 
 
 const INITIAL_STATE = {
     todos: [{ id: 69, text: 'Topkeke', completed: false }],
-    editedTodo: { id: null }
+    editedTodo: { todo: { id: null, text: null, completed: null } }
 }
 
 const todos = (state = INITIAL_STATE, action) => {
@@ -33,11 +33,11 @@ const todos = (state = INITIAL_STATE, action) => {
             }
         case EDIT_TODO:
             return {
-                ...state, editedTodo: { id: action.id }
+                ...state, editedTodo: { todo: action.todo }
             }
         case RESET_EDIT:
             return {
-                ...state, editedTodo: { id: null }
+                ...state, editedTodo: { todo: { id: null, text: null, completed: null } }
             }
         default:
             return state

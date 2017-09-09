@@ -1,16 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateFridgeItem, editFridgeItem } from '../actions/index'
+import { updateFridgeItem, fridgeItemResetEdit } from '../actions/index'
 import renderField from './renderField'
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field, reset } from 'redux-form'
 
 const submitFridgeItem = (values, dispatch, props) => {
-    dispatch(updateFridgeItem(props.fridgeItem.id, values.name, values.amount))
-    dispatch(editFridgeItem(props.fridgeItem.id))
+    dispatch(updateFridgeItem(props.fridgeItem.id, values.text, values.amount))
+    dispatch(fridgeItemResetEdit())
+    dispatch(reset('Fridge'))
 }
 
-let Fridge = ({ handleSubmit, fridgeItem, onFridgeItemEdit, onFridgeItemDelete }) => {
-    if(!fridgeItem.edit) {
+let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, onFridgeItemDelete, onFridgeItemGoBack }) => {
+    if(fridgeItem.id !== editedFridgeItem.fridgeItem.id) {
         return (
             <li className='list-group-item' key={fridgeItem.id} >
                 <div className='container'>
@@ -19,7 +20,7 @@ let Fridge = ({ handleSubmit, fridgeItem, onFridgeItemEdit, onFridgeItemDelete }
                     Amount: {fridgeItem.amount}
                     <br/>
                     <button
-                        onClick={() => onFridgeItemEdit(fridgeItem.id)}
+                        onClick={() => onFridgeItemEdit(fridgeItem)}
                         className='btn btn-info'
                     >
                         Edit
@@ -38,7 +39,7 @@ let Fridge = ({ handleSubmit, fridgeItem, onFridgeItemEdit, onFridgeItemDelete }
             <li className='list-group-item' key={fridgeItem.id}>
                 <form onSubmit={handleSubmit(submitFridgeItem)} >
                     <Field
-                        name='name'
+                        name='text'
                         type='text'
                         label='New Fridge Item text'
                         component={renderField}
@@ -56,7 +57,7 @@ let Fridge = ({ handleSubmit, fridgeItem, onFridgeItemEdit, onFridgeItemDelete }
                         Edit Fridge Item
                     </button>
                     <button
-                        onClick={() => onFridgeItemEdit(fridgeItem.id)}
+                        onClick={() => onFridgeItemGoBack()}
                         className='btn btn-secondary'
                     >
                         Go back
@@ -71,6 +72,10 @@ Fridge = reduxForm({
     form: 'Fridge'
 })(Fridge)
 
-Fridge = connect()(Fridge)
+Fridge = connect(
+    state => ({
+        initialValues: state.fridge.editedFridgeItem.fridgeItem
+    })
+)(Fridge)
 
 export default Fridge

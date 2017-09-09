@@ -1,10 +1,11 @@
-import { ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM } from '../../constants/index'
+import { ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT } from '../../constants/index'
 
 const INITIAL_STATE = {
-    fridge: [{ id: 69, text: 'dupcia', amount: 69, edit: false }]
+    fridge: [{ id: 69, text: 'ziemniory', amount: 69 }],
+    editedFridgeItem: { fridgeItem: { id: null, text: null, amount: null } }
 }
 
-const todos = (state = INITIAL_STATE, action) => {
+const fridge = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_FRIDGE_ITEM:
             return { ...state, fridge: [...state.fridge, { id: action.id, text: action.text, amount: action.amount }] }
@@ -24,15 +25,15 @@ const todos = (state = INITIAL_STATE, action) => {
             }
         case EDIT_FRIDGE_ITEM:
             return {
-                ...state, fridge: state.fridge.map(fridgeItem =>
-                    (fridgeItem.id === action.id)
-                        ? {...fridgeItem, edit: !fridgeItem.edit}
-                        : fridgeItem
-                )
+                ...state, editedFridgeItem: { fridgeItem: action.fridgeItem }
+            }
+        case RESET_EDIT:
+            return {
+                ...state, editedFridgeItem: { fridgeItem: { id: null, text: null, amount: null } }
             }
         default:
             return state
     }
 }
 
-export default todos
+export default fridge
