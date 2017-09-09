@@ -4,6 +4,18 @@ import { updateShoppingItem, shoppingItemResetEdit } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
+export const alertStyle = 'alert alert-danger mt-2 p-2 pl-3'
+
+export const required = (value) =>
+    !value
+        ? <div className={alertStyle}>Text required</div>
+        : undefined
+
+export const number = (value) =>
+    value && !/^[1-9]\d*$/i.test(value)
+        ? <div className={alertStyle}>Invalid number, must be positive</div>
+        : undefined
+
 const submitShoppingItem = (values, dispatch, props) => {
     dispatch(updateShoppingItem(props.shoppingItem.id, values.text, values.amount))
     dispatch(shoppingItemResetEdit())
@@ -43,12 +55,14 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
                         type='text'
                         label='New Shopping Item text'
                         component={renderField}
+                        validate={[required]}
                     />
                     <Field
                         name='amount'
                         type='number'
                         label='Amount'
                         component={renderField}
+                        validate={[required, number]}
                     />
                     <button
                         type='submit'

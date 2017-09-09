@@ -4,6 +4,13 @@ import { updateExam, examResetEdit } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
+export const alertStyle = 'alert alert-danger mt-2 p-2 pl-3'
+
+export const required = (value) =>
+    !value
+        ? <div className={alertStyle}>Text required</div>
+        : undefined
+
 const submitExam = (values, dispatch, props) => {
     dispatch(updateExam(props.exam.id, values.text))
     dispatch(examResetEdit())
@@ -50,6 +57,7 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
                         type='text'
                         label='New Exam text'
                         component={renderField}
+                        validate={[required]}
                     />
                     <button
                         type='submit'

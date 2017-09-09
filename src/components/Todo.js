@@ -4,6 +4,13 @@ import { updateTodo, todoResetEdit } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
+export const alertStyle = 'alert alert-danger mt-2 p-2 pl-3'
+
+export const required = (value) =>
+    !value
+        ? <div className={alertStyle}>Text required</div>
+        : undefined
+
 const submitTodo = (values, dispatch, props) => {
     dispatch(updateTodo(props.todo.id, values.text))
     dispatch(todoResetEdit())
@@ -50,6 +57,7 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                         type='text'
                         label='New Todo text'
                         component={renderField}
+                        validate={[required]}
                     />
                     <button
                         type='submit'
