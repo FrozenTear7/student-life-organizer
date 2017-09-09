@@ -2,11 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './components/App'
-
+import { loadState, saveState } from './localStorage'
 import createStore from './store/createStore.js'
 import './styles/index.css'
 
-const store = createStore()
+const persistedState = loadState()
+const store = createStore(
+    persistedState
+)
+
+store.subscribe(() => {
+    saveState(store.getState())
+})
 
 ReactDOM.render(
     <Provider store={store}>
