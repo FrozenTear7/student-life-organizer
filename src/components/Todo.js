@@ -22,19 +22,19 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                     <br/>
                     <button
                         onClick={() => onTodoEdit(todo)}
-                        className='btn btn-info'
+                        className='btn btn-info btn-sm'
                     >
                         Edit
                     </button>
                     <button
                         onClick={() => onTodoDelete(todo.id)}
-                        className='btn btn-danger'
+                        className='btn btn-danger btn-sm'
                     >
                         Delete
                     </button>
                     <button
                         onClick={() => onTodoComplete(todo.id)}
-                        className='btn btn-success'
+                        className='btn btn-success btn-sm'
                     >
                         Complete
                     </button>
@@ -53,13 +53,13 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                     />
                     <button
                         type='submit'
-                        className='btn btn-success'
+                        className='btn btn-success btn-sm'
                     >
                         Update Todo
                     </button>
                     <button
                         onClick={() => onTodoGoBack(todo)}
-                        className='btn btn-secondary'
+                        className='btn btn-secondary btn-sm'
                     >
                         Go back
                     </button>

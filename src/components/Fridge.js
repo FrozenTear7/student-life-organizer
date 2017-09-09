@@ -21,13 +21,13 @@ let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, on
                     <br/>
                     <button
                         onClick={() => onFridgeItemEdit(fridgeItem)}
-                        className='btn btn-info'
+                        className='btn btn-info btn-sm'
                     >
                         Edit
                     </button>
                     <button
                         onClick={() => onFridgeItemDelete(fridgeItem.id)}
-                        className='btn btn-danger'
+                        className='btn btn-danger btn-sm'
                     >
                         Delete
                     </button>
@@ -52,13 +52,13 @@ let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, on
                     />
                     <button
                         type='submit'
-                        className='btn btn-success'
+                        className='btn btn-success btn-sm'
                     >
                         Edit Fridge Item
                     </button>
                     <button
                         onClick={() => onFridgeItemGoBack()}
-                        className='btn btn-secondary'
+                        className='btn btn-secondary btn-sm'
                     >
                         Go back
                     </button>

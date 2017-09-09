@@ -1,5 +1,6 @@
-import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT,
-    ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM } from '../constants/index'
+import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_TODO,
+    ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT_FRIDGE,
+    UPDATE_SPENDINGS, DELETE_SPENDINGS, RESET_EDIT_SPENDINGS } from '../constants/index'
 
 // Todos
 
@@ -33,7 +34,7 @@ export const editTodo = (todo) => ({
 })
 
 export const todoResetEdit = () => ({
-    type: RESET_EDIT
+    type: RESET_EDIT_TODO
 })
 
 // Fridge
@@ -65,5 +66,20 @@ export const editFridgeItem = (fridgeItem) => ({
 })
 
 export const fridgeItemResetEdit = () => ({
-    type: RESET_EDIT
+    type: RESET_EDIT_FRIDGE
+})
+
+// Spendings
+
+export const updateSpendings = (amount) => ({
+    type: UPDATE_SPENDINGS,
+    amount
+})
+
+export const deleteSpendings = () => ({
+    type: DELETE_SPENDINGS
+})
+
+export const spendingsResetEdit = () => ({
+    type: RESET_EDIT_SPENDINGS
 })

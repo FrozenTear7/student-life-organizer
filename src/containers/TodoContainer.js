@@ -5,7 +5,7 @@ import { deleteTodo, toggleTodo, editTodo, todoResetEdit } from '../actions/inde
 
 const mapStateToProps = (state, ownProps) => ({
     editedTodo: state.todos.editedTodo,
-    submitSucceeded: hasSubmitSucceeded('TodoList')(state),
+    submitSucceeded: hasSubmitSucceeded('Todo')(state),
     todo: ownProps.todo
 })
 

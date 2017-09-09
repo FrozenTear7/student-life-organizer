@@ -5,7 +5,7 @@ import { deleteFridgeItem, editFridgeItem, fridgeItemResetEdit } from '../action
 
 const mapStateToProps = (state, ownProps) => ({
     editedFridgeItem: state.fridge.editedFridgeItem,
-    submitSucceeded: hasSubmitSucceeded('FridgeList')(state),
+    submitSucceeded: hasSubmitSucceeded('Fridge')(state),
     fridgeItem: ownProps.fridgeItem
 })
 

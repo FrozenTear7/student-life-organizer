@@ -3,7 +3,7 @@ import AddTodoContainer from '../containers/AddTodoContainer'
 import TodoListContainer from '../containers/TodoListContainer'
 import FridgeListContainer from '../containers/FridgeListContainer'
 import AddFridgeItemContainer from '../containers/AddFridgeItemContainer'
-import DailySpendingsContainer from '../containers/DailySpendingsContainer'
+import SpendingsContainer from '../containers/SpendingsContainer'
 
 const App = () => (
     <div className='container-fluid'>
@@ -33,6 +33,7 @@ const App = () => (
                 </th>
             </th>
             <th>
+                <SpendingsContainer />
             </th>
         </table>
     </div>

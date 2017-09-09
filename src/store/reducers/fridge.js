@@ -1,7 +1,7 @@
-import { ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT } from '../../constants/index'
+import { ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT_FRIDGE } from '../../constants/index'
 
 const INITIAL_STATE = {
-    fridge: [{ id: 69, text: 'ziemniory', amount: 69 }],
+    fridge: [{ id: null, text: null, amount: null }],
     editedFridgeItem: { fridgeItem: { id: null, text: null, amount: null } }
 }
 
@@ -27,7 +27,7 @@ const fridge = (state = INITIAL_STATE, action) => {
             return {
                 ...state, editedFridgeItem: { fridgeItem: action.fridgeItem }
             }
-        case RESET_EDIT:
+        case RESET_EDIT_FRIDGE:
             return {
                 ...state, editedFridgeItem: { fridgeItem: { id: null, text: null, amount: null } }
             }
