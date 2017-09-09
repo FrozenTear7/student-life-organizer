@@ -1,7 +1,8 @@
-import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO } from '../../constants/index'
+import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT } from '../../constants/index'
 
 const INITIAL_STATE = {
-    todos: [{ id: 69, text: 'Topkeke', completed: false, edit: false }]
+    todos: [{ id: 69, text: 'Topkeke', completed: false }],
+    editedTodo: { id: null }
 }
 
 const todos = (state = INITIAL_STATE, action) => {
@@ -32,11 +33,11 @@ const todos = (state = INITIAL_STATE, action) => {
             }
         case EDIT_TODO:
             return {
-                ...state, todos: state.todos.map(todo =>
-                    (todo.id === action.id)
-                        ? {...todo, edit: !todo.edit}
-                        : todo
-                )
+                ...state, editedTodo: { id: action.id }
+            }
+        case RESET_EDIT:
+            return {
+                ...state, editedTodo: { id: null }
             }
         default:
             return state

@@ -1,16 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateTodo, editTodo } from '../actions/index'
+import { updateTodo, resetEdit } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field } from 'redux-form'
 
 const submitTodo = (values, dispatch, props) => {
     dispatch(updateTodo(props.todo.id, values.name))
-    dispatch(editTodo(props.todo.id))
+    dispatch(resetEdit())
 }
 
-let Todo = ({ handleSubmit, todo, onTodoEdit, onTodoDelete, onTodoComplete }) => {
-    if(!todo.edit) {
+let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodoEdit, onTodoComplete }) => {
+    if(todo.id !== editedTodo.id) {
         return (
             <li className='list-group-item' key={todo.id} style={{
                 textDecoration: todo.completed ? 'line-through' : 'none'
@@ -57,7 +57,7 @@ let Todo = ({ handleSubmit, todo, onTodoEdit, onTodoDelete, onTodoComplete }) =>
                         Update Todo
                     </button>
                     <button
-                        onClick={() => onTodoEdit(todo.id)}
+                        onClick={() => onTodoGoBack()}
                         className='btn btn-secondary'
                     >
                         Go back
@@ -72,10 +72,6 @@ Todo = reduxForm({
     form: 'Todo'
 })(Todo)
 
-Todo = connect(
-    ownProps => ({
-        initialValues: ownProps.todo
-    })
-)(Todo)
+Todo = connect()(Todo)
 
 export default Todo

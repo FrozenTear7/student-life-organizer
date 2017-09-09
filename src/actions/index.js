@@ -1,4 +1,4 @@
-import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO,
+import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT,
     ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM } from '../constants/index'
 
 // Todos
@@ -30,6 +30,10 @@ export const deleteTodo = (id) => ({
 export const editTodo = (id) => ({
     type: EDIT_TODO,
     id
+})
+
+export const resetEdit = () => ({
+    type: RESET_EDIT
 })
 
 // Fridge

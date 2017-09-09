@@ -33,7 +33,6 @@ const App = () => (
                 </th>
             </th>
             <th>
-                <DailySpendingsContainer />
             </th>
         </table>
     </div>

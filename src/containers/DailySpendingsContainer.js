@@ -1,4 +1,4 @@
-import { connect } from 'react-redux'
+/*import { connect } from 'react-redux'
 import DailySpendings from '../components/DailySpendings'
 
 const mapStateToProps = (state) => ({
@@ -8,4 +8,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(DailySpendings)
+export default connect(mapStateToProps, mapDispatchToProps)(DailySpendings)*/
