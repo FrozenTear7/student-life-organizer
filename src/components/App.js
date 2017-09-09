@@ -1,9 +1,13 @@
 import React from 'react'
 import AddTodoContainer from '../containers/AddTodoContainer'
 import TodoListContainer from '../containers/TodoListContainer'
-import FridgeListContainer from '../containers/FridgeListContainer'
 import AddFridgeItemContainer from '../containers/AddFridgeItemContainer'
+import FridgeListContainer from '../containers/FridgeListContainer'
 import SpendingsContainer from '../containers/SpendingsContainer'
+import AddShoppingContainer from '../containers/AddShoppingItemContainer'
+import ShoppingListContainer from '../containers/ShoppingListContainer'
+import AddExamContainer from '../containers/AddExamContainer'
+import ExamListContainer from '../containers/ExamListContainer'
 
 const App = () => (
     <div className='container-fluid'>
@@ -15,22 +19,40 @@ const App = () => (
 
         <table className='table'>
             <th>
-                <th>
+                <tr>
                     <AddTodoContainer />
-                </th>
-                <th>
+                </tr>
+                <tr>
                     <br/>
                     <TodoListContainer />
-                </th>
+                </tr>
             </th>
             <th>
-                <th>
+                <tr>
+                    <AddExamContainer />
+                </tr>
+                <tr>
+                    <br/>
+                    <ExamListContainer />
+                </tr>
+            </th>
+            <th>
+                <tr>
                     <AddFridgeItemContainer/>
-                </th>
-                <th>
+                </tr>
+                <tr>
                     <br/>
                     <FridgeListContainer />
-                </th>
+                </tr>
+            </th>
+            <th>
+                <tr>
+                    <AddShoppingContainer />
+                </tr>
+                <tr>
+                    <br/>
+                    <ShoppingListContainer />
+                </tr>
             </th>
             <th>
                 <SpendingsContainer />

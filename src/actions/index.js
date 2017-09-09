@@ -1,10 +1,12 @@
 import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_TODO,
     ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT_FRIDGE,
-    UPDATE_SPENDINGS, DELETE_SPENDINGS, RESET_EDIT_SPENDINGS } from '../constants/index'
+    UPDATE_SPENDINGS, DELETE_SPENDINGS, RESET_EDIT_SPENDINGS,
+    ADD_EXAM, UPDATE_EXAM, DELETE_EXAM, TOGGLE_EXAM, EDIT_EXAM, RESET_EDIT_EXAM,
+    ADD_SHOPPING_ITEM, UPDATE_SHOPPING_ITEM, DELETE_SHOPPING_ITEM, EDIT_SHOPPING_ITEM, RESET_EDIT_SHOPPING } from '../constants/index'
 
 // Todos
 
-let nextTodoId = 0
+let nextTodoId = 1
 
 export const addTodo = (text) => ({
     type: ADD_TODO,
@@ -39,7 +41,7 @@ export const todoResetEdit = () => ({
 
 // Fridge
 
-let nextFridgeItemId = 0
+let nextFridgeItemId = 1
 
 export const addFridgeItem = (text, amount) => ({
     type: ADD_FRIDGE_ITEM,
@@ -82,4 +84,71 @@ export const deleteSpendings = () => ({
 
 export const spendingsResetEdit = () => ({
     type: RESET_EDIT_SPENDINGS
+})
+
+// Exams
+
+let nextExamId = 1
+
+export const addExam = (text) => ({
+    type: ADD_EXAM,
+    id: nextExamId++,
+    text
+})
+
+export const updateExam = (id, text) => ({
+    type: UPDATE_EXAM,
+    id,
+    text
+})
+
+export const toggleExam = (id) => ({
+    type: TOGGLE_EXAM,
+    id
+})
+
+export const deleteExam = (id) => ({
+    type: DELETE_EXAM,
+    id
+})
+
+export const editExam = (exam) => ({
+    type: EDIT_EXAM,
+    exam
+})
+
+export const examResetEdit = () => ({
+    type: RESET_EDIT_EXAM
+})
+
+// Shopping list
+
+let nextShoppingItemId = 1
+
+export const addShoppingItem = (text, amount) => ({
+    type: ADD_SHOPPING_ITEM,
+    id: nextShoppingItemId++,
+    text,
+    amount
+})
+
+export const updateShoppingItem = (id, text, amount) => ({
+    type: UPDATE_SHOPPING_ITEM,
+    id,
+    text,
+    amount
+})
+
+export const deleteShoppingItem = (id) => ({
+    type: DELETE_SHOPPING_ITEM,
+    id
+})
+
+export const editShoppingItem = (shoppingItem) => ({
+    type: EDIT_SHOPPING_ITEM,
+    shoppingItem
+})
+
+export const shoppingItemResetEdit = () => ({
+    type: RESET_EDIT_SHOPPING
 })

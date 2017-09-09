@@ -1,7 +1,7 @@
 import React from 'react'
 import FridgeContainer from '../containers/FridgeContainer'
 
-let FridgeList = ({ handleSubmit, dispatch, onFridgeItemSubmit, fridge, onFridgeItemEdit, onFridgeItemDelete }) => (
+let FridgeList = ({ fridge }) => (
     <ul>
         { fridge.map(fridgeItem =>
             <FridgeContainer key={fridgeItem.id} fridgeItem={fridgeItem} />
