@@ -8,12 +8,12 @@ import SpendingsContainer from '../containers/SpendingsContainer'
 const App = () => (
     <div className='container-fluid'>
         <div className='text-center'>
-            <img src='logo.png' alt='Logo Student Life' />
+            <br />
             <h1>Welcome! Student life organizer will help you with your everyday tasks!</h1>
         </div>
         <br />
 
-        <table>
+        <table className='table'>
             <th>
                 <th>
                     <AddTodoContainer />
