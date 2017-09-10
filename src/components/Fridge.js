@@ -41,7 +41,7 @@ let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, on
                     <Field
                         name='text'
                         type='text'
-                        label='New Fridge Item text'
+                        label='Edit Fridge Item'
                         component={renderField}
                     />
                     <Field
@@ -54,7 +54,7 @@ let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, on
                         type='submit'
                         className='btn btn-success btn-sm'
                     >
-                        Edit Fridge Item
+                        Udpate Fridge Item
                     </button>
                     <button
                         onClick={() => onFridgeItemGoBack()}
