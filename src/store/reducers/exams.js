@@ -1,7 +1,7 @@
 import { ADD_EXAM, UPDATE_EXAM, DELETE_EXAM, TOGGLE_EXAM, EDIT_EXAM, RESET_EDIT_EXAM } from '../../constants/index'
 
 const INITIAL_STATE = {
-    exams: [{ id: 0, text: 'Add new exams!', completed: false }],
+    exams: [],
     editedExam: { exam: { id: null, text: null, completed: null } }
 }
 

@@ -41,7 +41,7 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
                     <Field
                         name='text'
                         type='text'
-                        label='New Shopping Item text'
+                        label='Edit Shopping Item'
                         component={renderField}
                     />
                     <Field
@@ -54,7 +54,7 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
                         type='submit'
                         className='btn btn-success btn-sm'
                     >
-                        Edit Shopping Item
+                        Update Shopping Item
                     </button>
                     <button
                         onClick={() => onShoppingItemGoBack()}
@@ -69,7 +69,8 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
 }
 
 Shopping = reduxForm({
-    form: 'Shopping'
+    form: 'Shopping',
+    enableReinitialize: true
 })(Shopping)
 
 Shopping = connect(

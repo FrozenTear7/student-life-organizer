@@ -42,7 +42,7 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }
                 <Field
                     name='amount'
                     type='number'
-                    label='New amount'
+                    label='Edit amount'
                     component={renderField}
                 />
                 <button
@@ -63,7 +63,8 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }
 }
 
 Spendings = reduxForm({
-    form: 'Spendings'
+    form: 'Spendings',
+    enableReinitialize: true
 })(Spendings)
 
 Spendings = connect(

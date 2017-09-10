@@ -48,7 +48,7 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
                     <Field
                         name='text'
                         type='text'
-                        label='New Exam text'
+                        label='Edit exam'
                         component={renderField}
                     />
                     <button
@@ -70,7 +70,8 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
 }
 
 Exam = reduxForm({
-    form: 'Exam'
+    form: 'Exam',
+    enableReinitialize: true
 })(Exam)
 
 Exam = connect(

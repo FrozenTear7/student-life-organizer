@@ -1,7 +1,7 @@
 import { ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT_FRIDGE } from '../../constants/index'
 
 const INITIAL_STATE = {
-    fridge: [{ id: 0, text: 'Add new products!', amount: 1 }],
+    fridge: [],
     editedFridgeItem: { fridgeItem: { id: null, text: null, amount: null } }
 }
 

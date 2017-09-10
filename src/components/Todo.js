@@ -48,7 +48,7 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                     <Field
                         name='text'
                         type='text'
-                        label='New Todo text'
+                        label='Edit todo'
                         component={renderField}
                     />
                     <button
@@ -70,7 +70,8 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
 }
 
 Todo = reduxForm({
-    form: 'Todo'
+    form: 'Todo',
+    enableReinitialize: true
 })(Todo)
 
 Todo = connect(
