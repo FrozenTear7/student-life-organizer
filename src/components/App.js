@@ -18,45 +18,33 @@ const App = () => (
         <br />
 
         <table className='table'>
-            <th>
+            <tbody>
                 <tr>
-                    <AddTodoContainer />
+                    <th>
+                        <AddTodoContainer />
+                        <br/>
+                        <TodoListContainer />
+                    </th>
+                    <th>
+                        <AddExamContainer />
+                        <br/>
+                        <ExamListContainer />
+                    </th>
+                    <th>
+                        <AddFridgeItemContainer/>
+                        <br/>
+                        <FridgeListContainer />
+                    </th>
+                    <th>
+                        <AddShoppingContainer />
+                        <br />
+                        <ShoppingListContainer />
+                    </th>
+                    <th>
+                        <SpendingsContainer />
+                    </th>
                 </tr>
-                <tr>
-                    <br/>
-                    <TodoListContainer />
-                </tr>
-            </th>
-            <th>
-                <tr>
-                    <AddExamContainer />
-                </tr>
-                <tr>
-                    <br/>
-                    <ExamListContainer />
-                </tr>
-            </th>
-            <th>
-                <tr>
-                    <AddFridgeItemContainer/>
-                </tr>
-                <tr>
-                    <br/>
-                    <FridgeListContainer />
-                </tr>
-            </th>
-            <th>
-                <tr>
-                    <AddShoppingContainer />
-                </tr>
-                <tr>
-                    <br/>
-                    <ShoppingListContainer />
-                </tr>
-            </th>
-            <th>
-                <SpendingsContainer />
-            </th>
+            </tbody>
         </table>
     </div>
 )
