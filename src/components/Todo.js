@@ -70,7 +70,8 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
 }
 
 Todo = reduxForm({
-    form: 'Todo'
+    form: 'Todo',
+    enableReinitialize: true
 })(Todo)
 
 Todo = connect(

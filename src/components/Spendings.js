@@ -63,7 +63,8 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }
 }
 
 Spendings = reduxForm({
-    form: 'Spendings'
+    form: 'Spendings',
+    enableReinitialize: true
 })(Spendings)
 
 Spendings = connect(

@@ -70,7 +70,8 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
 }
 
 Exam = reduxForm({
-    form: 'Exam'
+    form: 'Exam',
+    enableReinitialize: true
 })(Exam)
 
 Exam = connect(

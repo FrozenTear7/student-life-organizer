@@ -69,7 +69,8 @@ let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, on
 }
 
 Fridge = reduxForm({
-    form: 'Fridge'
+    form: 'Fridge',
+    enableReinitialize: true
 })(Fridge)
 
 Fridge = connect(

@@ -69,7 +69,8 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
 }
 
 Shopping = reduxForm({
-    form: 'Shopping'
+    form: 'Shopping',
+    enableReinitialize: true
 })(Shopping)
 
 Shopping = connect(
