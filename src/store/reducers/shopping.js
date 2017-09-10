@@ -1,7 +1,7 @@
 import { ADD_SHOPPING_ITEM, UPDATE_SHOPPING_ITEM, DELETE_SHOPPING_ITEM, EDIT_SHOPPING_ITEM, RESET_EDIT_SHOPPING } from '../../constants/index'
 
 const INITIAL_STATE = {
-    shopping: [{ id: 0, text: 'Add new products!', amount: 1 }],
+    shopping: [],
     editedShoppingItem: { shoppingItem: { id: null, text: null, amount: null } }
 }
 
