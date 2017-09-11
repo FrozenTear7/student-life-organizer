@@ -8,6 +8,7 @@ import AddShoppingContainer from '../containers/AddShoppingItemContainer'
 import ShoppingListContainer from '../containers/ShoppingListContainer'
 import AddExamContainer from '../containers/AddExamContainer'
 import ExamListContainer from '../containers/ExamListContainer'
+import TodoFilterContainer from '../containers/TodoFilterContainer'
 
 const App = () => (
     <div className='container-fluid'>
@@ -21,6 +22,8 @@ const App = () => (
             <tbody>
                 <tr>
                     <th>
+                        <TodoFilterContainer />
+                        <br/>
                         <AddTodoContainer />
                         <br/>
                         <TodoListContainer />

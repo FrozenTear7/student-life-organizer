@@ -2,7 +2,8 @@ import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_
     ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT_FRIDGE,
     UPDATE_SPENDINGS, DELETE_SPENDINGS, RESET_EDIT_SPENDINGS,
     ADD_EXAM, UPDATE_EXAM, DELETE_EXAM, TOGGLE_EXAM, EDIT_EXAM, RESET_EDIT_EXAM,
-    ADD_SHOPPING_ITEM, UPDATE_SHOPPING_ITEM, DELETE_SHOPPING_ITEM, EDIT_SHOPPING_ITEM, RESET_EDIT_SHOPPING } from '../constants/index'
+    ADD_SHOPPING_ITEM, UPDATE_SHOPPING_ITEM, DELETE_SHOPPING_ITEM, EDIT_SHOPPING_ITEM, RESET_EDIT_SHOPPING,
+    SHOW_ALL, SHOW_HIGH_PRIORITY, SHOW_LOW_PRIORITY } from '../constants/index'
 
 // Todos
 
@@ -41,6 +42,18 @@ export const editTodo = (todo) => ({
 
 export const todoResetEdit = () => ({
     type: RESET_EDIT_TODO
+})
+
+export const todoShowAll = () => ({
+    type: SHOW_ALL
+})
+
+export const todoShowHighPriority = () => ({
+    type: SHOW_HIGH_PRIORITY
+})
+
+export const todoShowLowPriority = () => ({
+    type: SHOW_LOW_PRIORITY
 })
 
 // Fridge

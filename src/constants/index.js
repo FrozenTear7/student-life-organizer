@@ -1,3 +1,8 @@
+// Global
+export const SHOW_ALL = 'SHOW_ALL'
+export const SHOW_HIGH_PRIORITY = 'SHOW_HIGH_PRIORITY'
+export const SHOW_LOW_PRIORITY = 'SHOW_LOW_PRIORITY'
+
 // To do actions
 export const ADD_TODO = 'ADD_TODO'
 export const UPDATE_TODO = 'UPDATE_TODO'
