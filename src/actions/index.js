@@ -91,9 +91,10 @@ export const fridgeItemResetEdit = () => ({
 
 // Spendings
 
-export const updateSpendings = (amount) => ({
+export const updateSpendings = (amount, amountLeft) => ({
     type: UPDATE_SPENDINGS,
-    amount
+    amount,
+    amountLeft
 })
 
 export const deleteSpendings = () => ({
