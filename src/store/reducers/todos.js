@@ -2,13 +2,13 @@ import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_
 
 const INITIAL_STATE = {
     todos: [],
-    editedTodo: { todo: { id: null, text: null, completed: null } }
+    editedTodo: { todo: { id: null, text: null, completed: null, highPriority: null } }
 }
 
 const todos = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return { ...state, todos: [...state.todos, { id: action.id, text: action.text, completed: false }] }
+            return { ...state, todos: [...state.todos, { id: action.id, text: action.text, completed: false, highPriority: action.highPriority }] }
         case TOGGLE_TODO:
             return {
                 ...state, todos: state.todos.map(todo =>
@@ -21,7 +21,7 @@ const todos = (state = INITIAL_STATE, action) => {
             return {
                 ...state, todos: state.todos.map(todo =>
                     (todo.id === action.id)
-                        ? {...todo, text: action.text}
+                        ? {...todo, text: action.text, highPriority: action.highPriority}
                         : todo
                 )
             }
@@ -37,7 +37,7 @@ const todos = (state = INITIAL_STATE, action) => {
             }
         case RESET_EDIT_TODO:
             return {
-                ...state, editedTodo: { todo: { id: null, text: null, completed: null } }
+                ...state, editedTodo: { todo: { id: null, text: null, completed: null, highPriority: null } }
             }
         default:
             return state

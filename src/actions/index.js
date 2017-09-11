@@ -8,16 +8,18 @@ import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_
 
 let nextTodoId = 1
 
-export const addTodo = (text) => ({
+export const addTodo = (text, highPriority) => ({
     type: ADD_TODO,
     id: nextTodoId++,
-    text
+    text,
+    highPriority
 })
 
-export const updateTodo = (id, text) => ({
+export const updateTodo = (id, text, highPriority) => ({
     type: UPDATE_TODO,
     id,
-    text
+    text,
+    highPriority
 })
 
 export const toggleTodo = (id) => ({
@@ -90,16 +92,18 @@ export const spendingsResetEdit = () => ({
 
 let nextExamId = 1
 
-export const addExam = (text) => ({
+export const addExam = (text, highPriority) => ({
     type: ADD_EXAM,
     id: nextExamId++,
-    text
+    text,
+    highPriority
 })
 
-export const updateExam = (id, text) => ({
+export const updateExam = (id, text, highPriority) => ({
     type: UPDATE_EXAM,
     id,
-    text
+    text,
+    highPriority
 })
 
 export const toggleExam = (id) => ({

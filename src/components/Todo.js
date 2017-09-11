@@ -5,7 +5,7 @@ import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
 const submitTodo = (values, dispatch, props) => {
-    dispatch(updateTodo(props.todo.id, values.text))
+    dispatch(updateTodo(props.todo.id, values.text, values.highPriority))
     dispatch(todoResetEdit())
     dispatch(reset('Todo'))
 }
@@ -14,7 +14,8 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
     if(todo.id !== editedTodo.todo.id) {
         return (
             <li className='list-group-item' key={todo.id} style={{
-                textDecoration: todo.completed ? 'line-through' : 'none'
+                textDecoration: todo.completed ? 'line-through' : 'none',
+                color: todo.highPriority ? 'red' : 'black'
             }}
             >
                 <div className='container'>
@@ -49,6 +50,12 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                         name='text'
                         type='text'
                         label='Edit todo'
+                        component={renderField}
+                    />
+                    <Field
+                        name='highPriority'
+                        type='checkbox'
+                        label='High priority'
                         component={renderField}
                     />
                     <button
