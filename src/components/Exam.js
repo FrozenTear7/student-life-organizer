@@ -5,7 +5,7 @@ import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
 const submitExam = (values, dispatch, props) => {
-    dispatch(updateExam(props.exam.id, values.text))
+    dispatch(updateExam(props.exam.id, values.text, values.highPriority, values.date))
     dispatch(examResetEdit())
     dispatch(reset('Exam'))
 }
@@ -14,11 +14,14 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
     if(exam.id !== editedExam.exam.id) {
         return (
             <li className='list-group-item' key={exam.id} style={{
-                textDecoration: exam.completed ? 'line-through' : 'none'
+                textDecoration: exam.completed ? 'line-through' : 'none',
+                color: exam.highPriority ? 'red' : 'black'
             }}
             >
                 <div className='container'>
                     {exam.text}
+                    {exam.date ? <br/> : null}
+                    {exam.date}
                     <br/>
                     <button
                         onClick={() => onExamEdit(exam)}
@@ -49,6 +52,18 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
                         name='text'
                         type='text'
                         label='Edit exam'
+                        component={renderField}
+                    />
+                    <Field
+                        name='highPriority'
+                        type='checkbox'
+                        label='High priority'
+                        component={renderField}
+                    />
+                    <Field
+                        name='date'
+                        type='date'
+                        label='Date'
                         component={renderField}
                     />
                     <button

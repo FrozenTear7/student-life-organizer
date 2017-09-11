@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import renderField from './renderField'
 
 const submitExam = (values, dispatch) => {
-    dispatch(addExam(values.text))
+    dispatch(addExam(values.text, values.highPriority, values.date))
     dispatch(reset('AddExam'))
 }
 
@@ -17,6 +17,18 @@ let AddExam = ({ handleSubmit }) => {
                     name='text'
                     type='text'
                     label='New Exam'
+                    component={renderField}
+                />
+                <Field
+                    name='highPriority'
+                    type='checkbox'
+                    label='High priority'
+                    component={renderField}
+                />
+                <Field
+                    name='date'
+                    type='date'
+                    label='Date'
                     component={renderField}
                 />
                 <button
