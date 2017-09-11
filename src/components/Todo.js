@@ -5,7 +5,7 @@ import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
 const submitTodo = (values, dispatch, props) => {
-    dispatch(updateTodo(props.todo.id, values.text, values.highPriority))
+    dispatch(updateTodo(props.todo.id, values.text, values.highPriority, values.date))
     dispatch(todoResetEdit())
     dispatch(reset('Todo'))
 }
@@ -20,6 +20,8 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
             >
                 <div className='container'>
                     {todo.text}
+                    {todo.date ? <br/> : null}
+                    {todo.date}
                     <br/>
                     <button
                         onClick={() => onTodoEdit(todo)}
@@ -56,6 +58,12 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                         name='highPriority'
                         type='checkbox'
                         label='High priority'
+                        component={renderField}
+                    />
+                    <Field
+                        name='date'
+                        type='date'
+                        label='Date'
                         component={renderField}
                     />
                     <button

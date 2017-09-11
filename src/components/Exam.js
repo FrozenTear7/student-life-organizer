@@ -5,7 +5,7 @@ import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
 const submitExam = (values, dispatch, props) => {
-    dispatch(updateExam(props.exam.id, values.text, values.highPriority))
+    dispatch(updateExam(props.exam.id, values.text, values.highPriority, values.date))
     dispatch(examResetEdit())
     dispatch(reset('Exam'))
 }
@@ -20,6 +20,8 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
             >
                 <div className='container'>
                     {exam.text}
+                    {exam.date ? <br/> : null}
+                    {exam.date}
                     <br/>
                     <button
                         onClick={() => onExamEdit(exam)}
@@ -56,6 +58,12 @@ let Exam = ({ handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExam
                         name='highPriority'
                         type='checkbox'
                         label='High priority'
+                        component={renderField}
+                    />
+                    <Field
+                        name='date'
+                        type='date'
+                        label='Date'
                         component={renderField}
                     />
                     <button

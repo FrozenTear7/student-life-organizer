@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import renderField from './renderField'
 
 const submitTodo = (values, dispatch) => {
-    dispatch(addTodo(values.text, values.highPriority))
+    dispatch(addTodo(values.text, values.highPriority, values.date))
     dispatch(reset('AddTodo'))
 }
 
@@ -23,6 +23,12 @@ let AddTodo = ({ handleSubmit }) => {
                     name='highPriority'
                     type='checkbox'
                     label='High priority'
+                    component={renderField}
+                />
+                <Field
+                    name='date'
+                    type='date'
+                    label='Date'
                     component={renderField}
                 />
                 <button
