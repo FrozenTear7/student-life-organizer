@@ -44,7 +44,7 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                 </div>
             </li>
         )
-    } else {
+    } else if (todo.id === editedTodo.todo.id) {
         return (
             <li className='list-group-item' key={todo.id}>
                 <form onSubmit={handleSubmit(submitTodo)} >
@@ -81,7 +81,8 @@ let Todo = ({ handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodo
                 </form>
             </li>
         )
-    }
+    } else
+        return null
 }
 
 Todo = reduxForm({

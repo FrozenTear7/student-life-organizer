@@ -1,8 +1,10 @@
-import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_TODO } from '../../constants/index'
+import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_TODO,
+    SHOW_ALL, SHOW_HIGH_PRIORITY, SHOW_LOW_PRIORITY} from '../../constants/index'
 
 const INITIAL_STATE = {
     todos: [],
-    editedTodo: { todo: { id: null, text: null, completed: null, highPriority: null, date: null } }
+    editedTodo: { todo: { id: null, text: null, completed: null, highPriority: null, date: null } },
+    filter: { show: 'ALL' }
 }
 
 const todos = (state = INITIAL_STATE, action) => {
@@ -38,6 +40,18 @@ const todos = (state = INITIAL_STATE, action) => {
         case RESET_EDIT_TODO:
             return {
                 ...state, editedTodo: { todo: { id: null, text: null, completed: null, highPriority: null, date: null } }
+            }
+        case SHOW_ALL:
+            return {
+                ...state, filter: { show: 'ALL' }
+            }
+        case SHOW_HIGH_PRIORITY:
+            return {
+                ...state, filter: { show: 'HIGH_PRIORITY' }
+            }
+        case SHOW_LOW_PRIORITY:
+            return {
+                ...state, filter: { show: 'LOW_PRIORITY' }
             }
         default:
             return state
