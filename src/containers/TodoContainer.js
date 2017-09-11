@@ -4,6 +4,7 @@ import { hasSubmitSucceeded } from 'redux-form'
 import { deleteTodo, toggleTodo, editTodo, todoResetEdit } from '../actions/index'
 
 const mapStateToProps = (state, ownProps) => ({
+    filter: state.todos.filter,
     editedTodo: state.todos.editedTodo,
     submitSucceeded: hasSubmitSucceeded('Todo')(state),
     todo: ownProps.todo

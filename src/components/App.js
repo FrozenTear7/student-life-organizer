@@ -8,6 +8,8 @@ import AddShoppingContainer from '../containers/AddShoppingItemContainer'
 import ShoppingListContainer from '../containers/ShoppingListContainer'
 import AddExamContainer from '../containers/AddExamContainer'
 import ExamListContainer from '../containers/ExamListContainer'
+import TodoFilterContainer from '../containers/TodoFilterContainer'
+import ExamFilterContainer from '../containers/ExamFilterContainer'
 
 const App = () => (
     <div className='container-fluid'>
@@ -16,16 +18,19 @@ const App = () => (
             <h1>Welcome! Student life organizer will help you with your everyday tasks!</h1>
         </div>
         <br />
-
         <table className='table'>
             <tbody>
                 <tr>
                     <th>
+                        <TodoFilterContainer />
+                        <br/>
                         <AddTodoContainer />
                         <br/>
                         <TodoListContainer />
                     </th>
                     <th>
+                        <ExamFilterContainer />
+                        <br/>
                         <AddExamContainer />
                         <br/>
                         <ExamListContainer />

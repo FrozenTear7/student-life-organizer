@@ -4,6 +4,7 @@ import { hasSubmitSucceeded } from 'redux-form'
 import { deleteExam, toggleExam, editExam, examResetEdit } from '../actions/index'
 
 const mapStateToProps = (state, ownProps) => ({
+    filter: state.exams.filter,
     editedExam: state.exams.editedExam,
     submitSucceeded: hasSubmitSucceeded('Exam')(state),
     exam: ownProps.exam
