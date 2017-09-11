@@ -1,8 +1,3 @@
-// Global
-export const SHOW_ALL = 'SHOW_ALL'
-export const SHOW_HIGH_PRIORITY = 'SHOW_HIGH_PRIORITY'
-export const SHOW_LOW_PRIORITY = 'SHOW_LOW_PRIORITY'
-
 // To do actions
 export const ADD_TODO = 'ADD_TODO'
 export const UPDATE_TODO = 'UPDATE_TODO'
@@ -10,6 +5,9 @@ export const DELETE_TODO = 'DELETE_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const EDIT_TODO = 'EDIT_TODO'
 export const RESET_EDIT_TODO = 'RESET_EDIT_TODO'
+export const SHOW_ALL_TODOS = 'SHOW_ALL_TODOS'
+export const SHOW_HIGH_PRIORITY_TODOS = 'SHOW_HIGH_PRIORITY_TODOS'
+export const SHOW_LOW_PRIORITY_TODOS = 'SHOW_LOW_PRIORITY_TODOS'
 
 // Fridge actions
 export const ADD_FRIDGE_ITEM = 'ADD_FRIDGE_ITEM'
@@ -30,6 +28,9 @@ export const DELETE_EXAM = 'DELETE_EXAM'
 export const TOGGLE_EXAM = 'TOGGLE_EXAM'
 export const EDIT_EXAM = 'EDIT_EXAM'
 export const RESET_EDIT_EXAM = 'RESET_EDIT_EXAM'
+export const SHOW_ALL_EXAMS = 'SHOW_ALL_EXAMS'
+export const SHOW_HIGH_PRIORITY_EXAMS = 'SHOW_HIGH_PRIORITY_EXAMS'
+export const SHOW_LOW_PRIORITY_EXAMS = 'SHOW_LOW_PRIORITY_EXAMS'
 
 // Shopping list
 export const ADD_SHOPPING_ITEM = 'ADD_SHOPPING_ITEM'

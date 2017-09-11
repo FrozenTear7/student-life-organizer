@@ -3,7 +3,8 @@ import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_
     UPDATE_SPENDINGS, DELETE_SPENDINGS, RESET_EDIT_SPENDINGS,
     ADD_EXAM, UPDATE_EXAM, DELETE_EXAM, TOGGLE_EXAM, EDIT_EXAM, RESET_EDIT_EXAM,
     ADD_SHOPPING_ITEM, UPDATE_SHOPPING_ITEM, DELETE_SHOPPING_ITEM, EDIT_SHOPPING_ITEM, RESET_EDIT_SHOPPING,
-    SHOW_ALL, SHOW_HIGH_PRIORITY, SHOW_LOW_PRIORITY } from '../constants/index'
+    SHOW_ALL_TODOS, SHOW_HIGH_PRIORITY_TODOS, SHOW_LOW_PRIORITY_TODOS,
+    SHOW_ALL_EXAMS, SHOW_HIGH_PRIORITY_EXAMS, SHOW_LOW_PRIORITY_EXAMS } from '../constants/index'
 
 // Todos
 
@@ -45,15 +46,15 @@ export const todoResetEdit = () => ({
 })
 
 export const todoShowAll = () => ({
-    type: SHOW_ALL
+    type: SHOW_ALL_TODOS
 })
 
 export const todoShowHighPriority = () => ({
-    type: SHOW_HIGH_PRIORITY
+    type: SHOW_HIGH_PRIORITY_TODOS
 })
 
 export const todoShowLowPriority = () => ({
-    type: SHOW_LOW_PRIORITY
+    type: SHOW_LOW_PRIORITY_TODOS
 })
 
 // Fridge
@@ -140,6 +141,18 @@ export const editExam = (exam) => ({
 
 export const examResetEdit = () => ({
     type: RESET_EDIT_EXAM
+})
+
+export const examShowAll = () => ({
+    type: SHOW_ALL_EXAMS
+})
+
+export const examShowHighPriority = () => ({
+    type: SHOW_HIGH_PRIORITY_EXAMS
+})
+
+export const examShowLowPriority = () => ({
+    type: SHOW_LOW_PRIORITY_EXAMS
 })
 
 // Shopping list

@@ -1,24 +1,24 @@
 import React from 'react'
 
-const TodoFilter = ({ onTodoShowAllClick, onTodoShowHighPriorityClick, onTodoShowLowPriorityClick }) => {
+const ExamFilter = ({ onExamShowAllClick, onExamShowHighPriorityClick, onExamShowLowPriorityClick }) => {
     return (
         <div className='container'>
             <button
-                onClick={() => onTodoShowAllClick()}
+                onClick={() => onExamShowAllClick()}
                 className='btn btn-info btn-sm'
             >
                 Show all
             </button>
             <br/>
             <button
-                onClick={() => onTodoShowHighPriorityClick()}
+                onClick={() => onExamShowHighPriorityClick()}
                 className='btn btn-info btn-sm'
             >
                 Show high priority
             </button>
             <br/>
             <button
-                onClick={() => onTodoShowLowPriorityClick()}
+                onClick={() => onExamShowLowPriorityClick()}
                 className='btn btn-info btn-sm'
             >
                 Show low priority
@@ -27,4 +27,4 @@ const TodoFilter = ({ onTodoShowAllClick, onTodoShowHighPriorityClick, onTodoSho
     )
 }
 
-export default TodoFilter
+export default ExamFilter

@@ -1,8 +1,10 @@
-import { ADD_EXAM, UPDATE_EXAM, DELETE_EXAM, TOGGLE_EXAM, EDIT_EXAM, RESET_EDIT_EXAM } from '../../constants/index'
+import { ADD_EXAM, UPDATE_EXAM, DELETE_EXAM, TOGGLE_EXAM, EDIT_EXAM, RESET_EDIT_EXAM,
+    SHOW_ALL_EXAMS, SHOW_HIGH_PRIORITY_EXAMS, SHOW_LOW_PRIORITY_EXAMS } from '../../constants/index'
 
 const INITIAL_STATE = {
     exams: [],
-    editedExam: { exam: { id: null, text: null, completed: null, highPriority: null, date: null } }
+    editedExam: { exam: { id: null, text: null, completed: null, highPriority: null, date: null } },
+    filter: SHOW_ALL_EXAMS
 }
 
 const exams = (state = INITIAL_STATE, action) => {
@@ -38,6 +40,18 @@ const exams = (state = INITIAL_STATE, action) => {
         case RESET_EDIT_EXAM:
             return {
                 ...state, editedExam: { exam: { id: null, text: null, completed: null, highPriority: null, date: null } }
+            }
+        case SHOW_ALL_EXAMS:
+            return {
+                ...state, filter: SHOW_ALL_EXAMS
+            }
+        case SHOW_HIGH_PRIORITY_EXAMS:
+            return {
+                ...state, filter: SHOW_HIGH_PRIORITY_EXAMS
+            }
+        case SHOW_LOW_PRIORITY_EXAMS:
+            return {
+                ...state, filter: SHOW_LOW_PRIORITY_EXAMS
             }
         default:
             return state

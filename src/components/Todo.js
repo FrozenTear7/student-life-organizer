@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateTodo, todoResetEdit } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
-import {SHOW_ALL, SHOW_HIGH_PRIORITY, SHOW_LOW_PRIORITY} from '../constants/index'
+import { SHOW_ALL_TODOS, SHOW_HIGH_PRIORITY_TODOS, SHOW_LOW_PRIORITY_TODOS } from '../constants/index'
 
 const submitTodo = (values, dispatch, props) => {
     dispatch(updateTodo(props.todo.id, values.text, values.highPriority, values.date))
@@ -12,7 +12,7 @@ const submitTodo = (values, dispatch, props) => {
 }
 
 let Todo = ({ filter, handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete, onTodoEdit, onTodoComplete }) => {
-    if ((filter === SHOW_ALL) || (filter === SHOW_HIGH_PRIORITY && todo.highPriority) || (filter === SHOW_LOW_PRIORITY && !todo.highPriority)) {
+    if((filter === SHOW_ALL_TODOS) || (filter === SHOW_HIGH_PRIORITY_TODOS && todo.highPriority) || (filter === SHOW_LOW_PRIORITY_TODOS && !todo.highPriority)) {
         if (todo.id !== editedTodo.todo.id) {
             return (
                 <li className='list-group-item' key={todo.id} style={{
@@ -46,7 +46,7 @@ let Todo = ({ filter, handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete
                     </div>
                 </li>
             )
-        } else {
+        } else if (todo.id === editedTodo.todo.id) {
             return (
                 <li className='list-group-item' key={todo.id}>
                     <form onSubmit={handleSubmit(submitTodo)}>

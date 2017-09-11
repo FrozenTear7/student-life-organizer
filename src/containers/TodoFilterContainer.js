@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import TodoList from '../components/TodoList'
-import {todoShowAll, todoShowHighPriority, todoShowLowPriority} from '../actions/index'
+import TodoFilter from '../components/TodoFilter'
+import { todoShowAll, todoShowHighPriority, todoShowLowPriority } from '../actions/index'
 
 const mapStateToProps = (state) => ({
 })
@@ -11,4 +11,4 @@ const mapDispatchToProps = (dispatch) => ({
     onTodoShowLowPriorityClick: () => dispatch(todoShowLowPriority()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoFilter)
