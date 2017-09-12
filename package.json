@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "moment": "^2.18.1",
     "prop-types": "latest",
     "react": "^15.6.1",
