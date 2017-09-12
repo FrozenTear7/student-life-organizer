@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onShoppingItemDelete: (id) => dispatch(deleteShoppingItem(id)),
+    onShoppingItemDelete: (shoppingItem) => dispatch(deleteShoppingItem(shoppingItem)),
     onShoppingItemEdit: (shoppingItem) => dispatch(editShoppingItem(shoppingItem)),
     onShoppingItemGoBack: () => dispatch(shoppingItemResetEdit())
 })

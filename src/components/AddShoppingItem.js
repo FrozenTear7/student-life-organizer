@@ -5,7 +5,7 @@ import { addShoppingItem } from '../actions'
 import renderField from './renderField'
 
 const submitShoppingItem = (values, dispatch) => {
-    dispatch(addShoppingItem(values.name, values.amount))
+    dispatch(addShoppingItem(values.name, values.amount, values.cost))
     dispatch(reset('AddShoppingItem'))
 }
 
@@ -23,6 +23,12 @@ let AddShoppingItem = ({ handleSubmit }) => {
                     name='amount'
                     type='number'
                     label='Amount'
+                    component={renderField}
+                />
+                <Field
+                    name='cost'
+                    type='number'
+                    label='Cost'
                     component={renderField}
                 />
                 <button

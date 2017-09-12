@@ -1,21 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateSpendings } from '../actions/index'
+import { updateSpendings, subtractSpendings } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
+import moment from 'moment'
 
 const moneyDaily = (money) => {
-    const date = new Date()
-    return (money/(new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate())).toFixed(2)
+    const a = moment().endOf('month')
+    const b = moment().startOf('month')
+
+    return (money/((a.diff(b, 'days'))+1)).toFixed(2)
 }
 
 const moneyDailyLeft = (money) => {
-    const date = new Date()
-    return (money/((new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate() - date.getDate())+1)).toFixed(2)
+    const a = moment().endOf('month')
+    const b = moment()
+
+    return (money/((a.diff(b, 'days'))+1)).toFixed(2)
 }
 
-const submitSpendings = (values, dispatch,) => {
+const submitSpendings = (values, dispatch) => {
     dispatch(updateSpendings(values.amount, values.amountLeft))
+    dispatch(reset('Spendings'))
+}
+
+const submitSubtractSpendings = (values, dispatch) => {
+    dispatch(subtractSpendings(values.subtractAmount))
     dispatch(reset('Spendings'))
 }
 
@@ -23,7 +33,7 @@ const countDifference = (originalSum, left) => {
     return (left-originalSum)
 }
 
-let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }) => {
+let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, onSpendingsSubtract }) => {
     if(!spendings.edit) {
         return (
             <div className='container'>
@@ -54,6 +64,21 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }
                 >
                     Reset spendings
                 </button>
+                <br/>
+                <form onSubmit={handleSubmit(submitSubtractSpendings)} >
+                    <Field
+                        name='subtractAmount'
+                        type='number'
+                        label='Subtract amount'
+                        component={renderField}
+                    />
+                    <button
+                        type='submit'
+                        className='btn btn-success btn-sm'
+                    >
+                        Subtract spendings
+                    </button>
+                </form>
             </div>
         )
     } else {

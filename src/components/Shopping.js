@@ -5,7 +5,7 @@ import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 
 const submitShoppingItem = (values, dispatch, props) => {
-    dispatch(updateShoppingItem(props.shoppingItem.id, values.text, values.amount))
+    dispatch(updateShoppingItem(props.shoppingItem.id, values.text, values.amount, values.cost))
     dispatch(shoppingItemResetEdit())
     dispatch(reset('Shopping'))
 }
@@ -19,6 +19,8 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
                     <br/>
                     Amount: {shoppingItem.amount}
                     <br/>
+                    Cost: {shoppingItem.cost}
+                    <br/>
                     <button
                         onClick={() => onShoppingItemEdit(shoppingItem)}
                         className='btn btn-info btn-sm'
@@ -26,7 +28,7 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
                         Edit
                     </button>
                     <button
-                        onClick={() => onShoppingItemDelete(shoppingItem.id)}
+                        onClick={() => onShoppingItemDelete(shoppingItem)}
                         className='btn btn-danger btn-sm'
                     >
                         Delete
@@ -48,6 +50,12 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
                         name='amount'
                         type='number'
                         label='Amount'
+                        component={renderField}
+                    />
+                    <Field
+                        name='cost'
+                        type='number'
+                        label='Cost'
                         component={renderField}
                     />
                     <button

@@ -4,11 +4,22 @@ import { updateExam, examResetEdit } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 import {SHOW_ALL_EXAMS, SHOW_HIGH_PRIORITY_EXAMS, SHOW_LOW_PRIORITY_EXAMS} from '../constants/index'
+import moment from 'moment'
 
 const submitExam = (values, dispatch, props) => {
     dispatch(updateExam(props.exam.id, values.text, values.highPriority, values.date))
     dispatch(examResetEdit())
     dispatch(reset('Exam'))
+}
+
+const checkDateEnding = (endDate) => {
+    const a = moment().format('YYYY-MM-DD')
+    const b = moment().add(-1, 'day').format('YYYY-MM-DD')
+    if (a === endDate){
+        return true
+    } else if (b === endDate){
+        return true
+    }
 }
 
 let Exam = ({ filter, handleSubmit, editedExam, exam, onExamGoBack, onExamDelete, onExamEdit, onExamComplete }) => {
@@ -17,7 +28,8 @@ let Exam = ({ filter, handleSubmit, editedExam, exam, onExamGoBack, onExamDelete
             return (
                 <li className='list-group-item' key={exam.id} style={{
                     textDecoration: exam.completed ? 'line-through' : 'none',
-                    color: exam.highPriority ? 'red' : 'black'
+                    color: exam.highPriority ? 'red' : 'black',
+                    backgroundColor: checkDateEnding(exam.date) ? '#f9ed43' : null
                 }}
                 >
                     <div className='container'>
