@@ -1,6 +1,6 @@
 import { ADD_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TODO, EDIT_TODO, RESET_EDIT_TODO,
     ADD_FRIDGE_ITEM, UPDATE_FRIDGE_ITEM, DELETE_FRIDGE_ITEM, EDIT_FRIDGE_ITEM, RESET_EDIT_FRIDGE,
-    UPDATE_SPENDINGS, DELETE_SPENDINGS, RESET_EDIT_SPENDINGS,
+    UPDATE_SPENDINGS, DELETE_SPENDINGS, RESET_EDIT_SPENDINGS, SUBTRACT_SPENDINGS, SUBTRACT_COST,
     ADD_EXAM, UPDATE_EXAM, DELETE_EXAM, TOGGLE_EXAM, EDIT_EXAM, RESET_EDIT_EXAM,
     ADD_SHOPPING_ITEM, UPDATE_SHOPPING_ITEM, DELETE_SHOPPING_ITEM, EDIT_SHOPPING_ITEM, RESET_EDIT_SHOPPING,
     SHOW_ALL_TODOS, SHOW_HIGH_PRIORITY_TODOS, SHOW_LOW_PRIORITY_TODOS,
@@ -91,9 +91,10 @@ export const fridgeItemResetEdit = () => ({
 
 // Spendings
 
-export const updateSpendings = (amount) => ({
+export const updateSpendings = (amount, amountLeft) => ({
     type: UPDATE_SPENDINGS,
-    amount
+    amount,
+    amountLeft
 })
 
 export const deleteSpendings = () => ({
@@ -102,6 +103,16 @@ export const deleteSpendings = () => ({
 
 export const spendingsResetEdit = () => ({
     type: RESET_EDIT_SPENDINGS
+})
+
+export const subtractSpendings = (subtractAmount) => ({
+    type: SUBTRACT_SPENDINGS,
+    subtractAmount
+})
+
+export const subtractCost = (shoppingCost) => ({
+    type: SUBTRACT_COST,
+    shoppingCost
 })
 
 // Exams
@@ -159,23 +170,25 @@ export const examShowLowPriority = () => ({
 
 let nextShoppingItemId = 1
 
-export const addShoppingItem = (text, amount) => ({
+export const addShoppingItem = (text, amount, cost) => ({
     type: ADD_SHOPPING_ITEM,
     id: nextShoppingItemId++,
     text,
-    amount
+    amount,
+    cost
 })
 
-export const updateShoppingItem = (id, text, amount) => ({
+export const updateShoppingItem = (id, text, amount, cost) => ({
     type: UPDATE_SHOPPING_ITEM,
     id,
     text,
-    amount
+    amount,
+    cost
 })
 
-export const deleteShoppingItem = (id) => ({
+export const deleteShoppingItem = (shoppingItem) => ({
     type: DELETE_SHOPPING_ITEM,
-    id
+    shoppingItem
 })
 
 export const editShoppingItem = (shoppingItem) => ({

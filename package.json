@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "^2.18.1",
     "prop-types": "latest",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
@@ -14,8 +15,7 @@
     "redux": "latest",
     "redux-form": "^7.0.3",
     "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.2.0",
-    "moment": "latest"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

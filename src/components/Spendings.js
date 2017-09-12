@@ -1,27 +1,57 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateSpendings } from '../actions/index'
+import { updateSpendings, subtractSpendings } from '../actions/index'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
+import moment from 'moment'
 
-const getMonthDaysLeft = (money) => {
-    const date = new Date()
-    return (money/(new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate() - date.getDate())).toFixed(2)
+const moneyDaily = (money) => {
+    const a = moment().endOf('month')
+    const b = moment().startOf('month')
+
+    return (money/((a.diff(b, 'days'))+1)).toFixed(2)
 }
 
-const submitSpendings = (values, dispatch,) => {
-    dispatch(updateSpendings(values.amount))
+const moneyDailyLeft = (money) => {
+    const a = moment().endOf('month')
+    const b = moment()
+
+    return (money/((a.diff(b, 'days'))+1)).toFixed(2)
+}
+
+const submitSpendings = (values, dispatch) => {
+    dispatch(updateSpendings(values.amount, values.amountLeft))
     dispatch(reset('Spendings'))
 }
 
-let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }) => {
+const submitSubtractSpendings = (values, dispatch) => {
+    dispatch(subtractSpendings(values.subtractAmount))
+    dispatch(reset('Spendings'))
+}
+
+const countDifference = (originalSum, left) => {
+    return (left-originalSum)
+}
+
+let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, onSpendingsSubtract }) => {
     if(!spendings.edit) {
         return (
             <div className='container'>
                 Spendings for this month: {spendings.amount}
                 <br/>
-                Daily spendings: {getMonthDaysLeft(spendings.amount)}
+                Money left this month: {spendings.amountLeft}
                 <br/>
+                <br/>
+                Estimated daily spendings: {moneyDaily(spendings.amount)}
+                <br/>
+                Current daily spendings: {moneyDailyLeft(spendings.amountLeft)}
+                <br/>
+                <div className='container' style={{
+                    color: (countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))>=0.00) ? 'green' : 'red'
+                }}
+                >
+                    Daily spendings difference: {(countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))).toFixed(2)}
+                </div>
                 <button
                     onClick={() => onSpendingsEdit()}
                     className='btn btn-info btn-sm'
@@ -34,6 +64,21 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }
                 >
                     Reset spendings
                 </button>
+                <br/>
+                <form onSubmit={handleSubmit(submitSubtractSpendings)} >
+                    <Field
+                        name='subtractAmount'
+                        type='number'
+                        label='Subtract amount'
+                        component={renderField}
+                    />
+                    <button
+                        type='submit'
+                        className='btn btn-success btn-sm'
+                    >
+                        Subtract spendings
+                    </button>
+                </form>
             </div>
         )
     } else {
@@ -43,6 +88,12 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete }
                     name='amount'
                     type='number'
                     label='Edit amount'
+                    component={renderField}
+                />
+                <Field
+                    name='amountLeft'
+                    type='number'
+                    label='Edit amount left'
                     component={renderField}
                 />
                 <button
