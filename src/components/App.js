@@ -15,6 +15,10 @@ const App = () => (
     <div className='container-fluid'>
         <div className='text-center'>
             <br />
+            <img src='logo2.png' alt='Logo' style={{
+                height: 200,
+                width: 200
+            }} />
             <h1>Welcome! Student life organizer will help you with your everyday tasks!</h1>
         </div>
         <br />
