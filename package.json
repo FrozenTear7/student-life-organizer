@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "https://frozentear7.github.io/student-life-organizer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,9 +41,12 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-standard": "^3.0.1",
+    "gh-pages": "^1.0.0",
     "lodash": "^4.17.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
