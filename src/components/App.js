@@ -10,52 +10,102 @@ import AddExamContainer from '../containers/AddExamContainer'
 import ExamListContainer from '../containers/ExamListContainer'
 import TodoFilterContainer from '../containers/TodoFilterContainer'
 import ExamFilterContainer from '../containers/ExamFilterContainer'
+import ChangeViewContainer from '../containers/ChangeViewContainer'
 
-const App = () => (
-    <div className='container-fluid'>
-        <div className='text-center'>
-            <br />
-            <img src='logo2.png' alt='Logo' style={{
-                height: 200,
-                width: 200
-            }} />
-            <h1>Welcome! Student life organizer will help you with your everyday tasks!</h1>
+const App = ({ view }) =>  {
+    return (
+        <div className='container-fluid'>
+            <div className='text-center'>
+                <br/>
+                <h1>Welcome! Student life organizer will help you with your everyday tasks!</h1>
+            </div>
+            <br/>
+            <div className='row'>
+                <div className='col-lg-2'>
+                    Choose category to show:
+                    <br/>
+                    <ChangeViewContainer/>
+                    {
+                        (view === 'TODOS') ?
+                            <div>
+                                <br/>
+                                Filter todos:
+                                <br/>
+                                <TodoFilterContainer/>
+                            </div> :
+                            null
+                    }
+                    {
+                        (view === 'EXAMS') ?
+                            <div>
+                                <br/>
+                                Filter exams:
+                                <br/>
+                                <ExamFilterContainer/>
+                            </div> :
+                            null
+                    }
+                </div>
+                <div className='col-lg-6'>
+                    {
+                        (view === 'TODOS') ?
+                            <div className='row'>
+                                <div className='col-lg-4'>
+                                    <AddTodoContainer/>
+                                </div>
+                                <br/>
+                                <div className='col-lg-8'>
+                                    <TodoListContainer/>
+                                </div>
+                            </div> :
+                            null
+                    }
+                    {
+                        (view === 'EXAMS') ?
+                            <div className='row'>
+                                <div className='col-lg-4'>
+                                    <AddExamContainer/>
+                                </div>
+                                <br/>
+                                <div className='col-lg-8'>
+                                    <ExamListContainer/>
+                                </div>
+                            </div> :
+                            null
+                    }
+                    {
+                        (view === 'FRIDGE') ?
+                            <div className='row'>
+                                <div className='col-lg-4'>
+                                    <AddFridgeItemContainer/>
+                                </div>
+                                <br/>
+                                <div className='col-lg-8'>
+                                    <FridgeListContainer/>
+                                </div>
+                            </div> :
+                            null
+                    }
+                    {
+                        (view === 'SHOPPING_LIST') ?
+                            <div className='row'>
+                                <div className='col-lg-4'>
+                                    <AddShoppingContainer/>
+                                </div>
+                                <br/>
+                                <div className='col-lg-8'>
+                                    <ShoppingListContainer/>
+                                </div>
+                            </div> :
+                            null
+                    }
+                </div>
+                <div className='col-lg-4'>
+                    <SpendingsContainer/>
+                </div>
+            </div>
         </div>
-        <br />
-        <table className='table'>
-            <tbody>
-                <tr>
-                    <th>
-                        <TodoFilterContainer />
-                        <br/>
-                        <AddTodoContainer />
-                        <br/>
-                        <TodoListContainer />
-                    </th>
-                    <th>
-                        <ExamFilterContainer />
-                        <br/>
-                        <AddExamContainer />
-                        <br/>
-                        <ExamListContainer />
-                    </th>
-                    <th>
-                        <AddFridgeItemContainer/>
-                        <br/>
-                        <FridgeListContainer />
-                    </th>
-                    <th>
-                        <AddShoppingContainer />
-                        <br />
-                        <ShoppingListContainer />
-                    </th>
-                    <th>
-                        <SpendingsContainer />
-                    </th>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-)
+    )
+}
 
 export default App

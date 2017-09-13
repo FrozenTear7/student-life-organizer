@@ -1,3 +1,6 @@
+// View actions
+export const CHANGE_VIEW = 'CHANGE_VIEW'
+
 // To do actions
 export const ADD_TODO = 'ADD_TODO'
 export const UPDATE_TODO = 'UPDATE_TODO'
@@ -22,7 +25,7 @@ export const DELETE_SPENDINGS = 'DELETE_SPENDINGS'
 export const RESET_EDIT_SPENDINGS = 'RESET_EDIT_SPENDINGS'
 export const SUBTRACT_SPENDINGS = 'SUBTRACT_SPENDINGS'
 
-// Exams
+// Exams actions
 export const ADD_EXAM = 'ADD_EXAM'
 export const UPDATE_EXAM = 'UPDATE_EXAM'
 export const DELETE_EXAM = 'DELETE_EXAM'
@@ -33,7 +36,7 @@ export const SHOW_ALL_EXAMS = 'SHOW_ALL_EXAMS'
 export const SHOW_HIGH_PRIORITY_EXAMS = 'SHOW_HIGH_PRIORITY_EXAMS'
 export const SHOW_LOW_PRIORITY_EXAMS = 'SHOW_LOW_PRIORITY_EXAMS'
 
-// Shopping list
+// Shopping list actions
 export const ADD_SHOPPING_ITEM = 'ADD_SHOPPING_ITEM'
 export const UPDATE_SHOPPING_ITEM = 'UPDATE_SHOPPING_ITEM'
 export const DELETE_SHOPPING_ITEM = 'DELETE_SHOPPING_ITEM'

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Fridge from '../components/Fridge'
 import { hasSubmitSucceeded } from 'redux-form'
-import { deleteFridgeItem, editFridgeItem, fridgeItemResetEdit } from '../actions/index'
+import { deleteFridgeItem, editFridgeItem, fridgeItemResetEdit } from '../actions/fridgeActions'
 
 const mapStateToProps = (state, ownProps) => ({
     editedFridgeItem: state.fridge.editedFridgeItem,

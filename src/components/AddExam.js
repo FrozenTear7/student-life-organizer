@@ -1,11 +1,12 @@
 import React from 'react'
 import { reduxForm, Field, reset } from 'redux-form'
-import { addExam } from '../actions'
+import { addExam } from '../actions/examActions'
 import { connect } from 'react-redux'
 import renderField from './renderField'
+import {required} from '../utils/validateForm'
 
 const submitExam = (values, dispatch) => {
-    dispatch(addExam(values.text, values.highPriority, values.date))
+    dispatch(addExam(values.text, values.subject, values.highPriority, values.date))
     dispatch(reset('AddExam'))
 }
 
@@ -17,6 +18,13 @@ let AddExam = ({ handleSubmit }) => {
                     name='text'
                     type='text'
                     label='New Exam'
+                    component={renderField}
+                    validate={required}
+                />
+                <Field
+                    name='subject'
+                    type='text'
+                    label='Edit subject'
                     component={renderField}
                 />
                 <Field

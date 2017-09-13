@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import App from './components/App'
+import AppContainer from './containers/AppContainer'
 import { loadState, saveState } from './store/localStorage'
 import createStore from './store/createStore.js'
 import './styles/index.css'
@@ -17,7 +17,7 @@ store.subscribe(() => {
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <AppContainer />
     </Provider>,
     document.getElementById('root')
 )

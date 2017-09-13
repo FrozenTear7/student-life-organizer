@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Shopping from '../components/Shopping'
 import { hasSubmitSucceeded } from 'redux-form'
-import { deleteShoppingItem, editShoppingItem, shoppingItemResetEdit } from '../actions/index'
+import { deleteShoppingItem, editShoppingItem, shoppingItemResetEdit } from '../actions/shoppingActions'
 
 const mapStateToProps = (state, ownProps) => ({
     editedShoppingItem: state.shopping.editedShoppingItem,

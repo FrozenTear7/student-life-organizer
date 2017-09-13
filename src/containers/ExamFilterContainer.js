@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ExamFilter from '../components/ExamFilter'
-import { examShowAll, examShowHighPriority, examShowLowPriority } from '../actions/index'
+import { examShowAll, examShowHighPriority, examShowLowPriority } from '../actions/examActions'
 
 const mapStateToProps = (state) => ({
 })
