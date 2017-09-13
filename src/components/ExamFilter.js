@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ExamFilter = ({ onExamShowAllClick, onExamShowHighPriorityClick, onExamShowLowPriorityClick }) => {
+const ExamFilter = ({ filter, onExamShowAllClick, onExamShowHighPriorityClick, onExamShowLowPriorityClick }) => {
     return (
         <div className='container'>
             <button
@@ -23,6 +23,10 @@ const ExamFilter = ({ onExamShowAllClick, onExamShowHighPriorityClick, onExamSho
             >
                 Show low priority
             </button>
+            <br/>
+            Active filter:
+            <br/>
+            {filter}
         </div>
     )
 }

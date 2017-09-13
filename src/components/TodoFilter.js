@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoFilter = ({ onTodoShowAllClick, onTodoShowHighPriorityClick, onTodoShowLowPriorityClick }) => {
+const TodoFilter = ({ filter, onTodoShowAllClick, onTodoShowHighPriorityClick, onTodoShowLowPriorityClick }) => {
     return (
         <div className='container'>
             <button
@@ -23,6 +23,8 @@ const TodoFilter = ({ onTodoShowAllClick, onTodoShowHighPriorityClick, onTodoSho
             >
                 Show low priority
             </button>
+            <br/>
+            Active filter: {filter}
         </div>
     )
 }

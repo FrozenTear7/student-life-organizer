@@ -40,10 +40,10 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, 
             <div className='container'>
                 Spendings for this month: {spendings.amount}
                 <br/>
+                Estimated daily spendings in this month: {moneyDaily(spendings.amount)}
+                <br/>
+                <br/>
                 Money left this month: {spendings.amountLeft}
-                <br/>
-                <br/>
-                Estimated daily spendings: {moneyDaily(spendings.amount)}
                 <br/>
                 Current daily spendings: {moneyDailyLeft(spendings.amountLeft)}
                 <br/>

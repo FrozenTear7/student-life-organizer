@@ -1,38 +1,43 @@
 import React from 'react'
 
-let ChangeView = ({ onViewChange }) => {
+let ChangeView = ({ view, onViewChange }) => {
     return (
         <div className='container'>
-            <div className='btn-group-vertical' role='group' aria-label='...'>
-                <button
-                    type='button'
-                    className='btn btn-default'
-                    onClick={() => onViewChange('TODOS')}
-                >
-                    Todos
-                </button>
-                <button
-                    type='button'
-                    className='btn btn-default'
-                    onClick={() => onViewChange('EXAMS')}
-                >
-                    Exams
-                </button>
-                <button
-                    type='button'
-                    className='btn btn-default'
-                    onClick={() => onViewChange('FRIDGE')}
-                >
-                    Fridge
-                </button>
-                <button
-                    type='button'
-                    className='btn btn-default'
-                    onClick={() => onViewChange('SHOPPING_LIST')}
-                >
-                    Shopping list
-                </button>
-            </div>
+            <button
+                type='button'
+                className='btn btn-default'
+                onClick={() => onViewChange('TODOS')}
+            >
+                Todos
+            </button>
+            <br/>
+            <button
+                type='button'
+                className='btn btn-default'
+                onClick={() => onViewChange('EXAMS')}
+            >
+                Exams
+            </button>
+            <br/>
+            <button
+                type='button'
+                className='btn btn-default'
+                onClick={() => onViewChange('FRIDGE')}
+            >
+                Fridge
+            </button>
+            <br/>
+            <button
+                type='button'
+                className='btn btn-default'
+                onClick={() => onViewChange('SHOPPING_LIST')}
+            >
+                Shopping list
+            </button>
+            <br/>
+            Active view:
+            <br/>
+            {view}
         </div>
     )
 }
