@@ -1,8 +1,9 @@
 import React from 'react'
 import { reduxForm, Field, reset } from 'redux-form'
-import { addTodo } from '../actions'
+import { addTodo } from '../actions/todoActions'
 import { connect } from 'react-redux'
 import renderField from './renderField'
+import { required } from '../utils/validateForm'
 
 const submitTodo = (values, dispatch) => {
     dispatch(addTodo(values.text, values.highPriority, values.date))
@@ -18,6 +19,7 @@ let AddTodo = ({ handleSubmit }) => {
                     type='text'
                     label='New Todo'
                     component={renderField}
+                    validate={[required]}
                 />
                 <Field
                     name='highPriority'

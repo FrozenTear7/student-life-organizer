@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field, reset } from 'redux-form'
-import { addFridgeItem } from '../actions'
+import { addFridgeItem } from '../actions/fridgeActions'
 import renderField from './renderField'
+import { positiveNumber, required } from '../utils/validateForm'
 
 const submitFridgeItem = (values, dispatch) => {
     dispatch(addFridgeItem(values.name, values.amount))
@@ -18,12 +19,14 @@ let AddFridgeItem = ({ handleSubmit }) => {
                     type='text'
                     label='New Fridge Item'
                     component={renderField}
+                    validate={required}
                 />
                 <Field
                     name='amount'
                     type='number'
                     label='Amount'
                     component={renderField}
+                    validate={positiveNumber}
                 />
                 <button
                     type='submit'

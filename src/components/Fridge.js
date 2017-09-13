@@ -1,8 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateFridgeItem, fridgeItemResetEdit } from '../actions/index'
+import { updateFridgeItem, fridgeItemResetEdit } from '../actions/fridgeActions'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
+import {positiveNumber, required} from '../utils/validateForm'
 
 const submitFridgeItem = (values, dispatch, props) => {
     dispatch(updateFridgeItem(props.fridgeItem.id, values.text, values.amount))
@@ -16,9 +17,12 @@ let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, on
             <li className='list-group-item' key={fridgeItem.id} >
                 <div className='container'>
                     {fridgeItem.text}
-                    <br/>
-                    Amount: {fridgeItem.amount}
-                    <br/>
+                    {fridgeItem.amount ?
+                        <div>
+                            Amount: {fridgeItem.amount}
+                        </div>
+                        : null
+                    }
                     <button
                         onClick={() => onFridgeItemEdit(fridgeItem)}
                         className='btn btn-info btn-sm'
@@ -43,12 +47,14 @@ let Fridge = ({ handleSubmit, editedFridgeItem, fridgeItem, onFridgeItemEdit, on
                         type='text'
                         label='Edit Fridge Item'
                         component={renderField}
+                        validate={required}
                     />
                     <Field
                         name='amount'
                         type='number'
                         label='Amount'
                         component={renderField}
+                        validate={positiveNumber}
                     />
                     <button
                         type='submit'

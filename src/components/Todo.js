@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateTodo, todoResetEdit } from '../actions/index'
+import { updateTodo, todoResetEdit } from '../actions/todoActions'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 import { SHOW_ALL_TODOS, SHOW_HIGH_PRIORITY_TODOS, SHOW_LOW_PRIORITY_TODOS } from '../constants/index'
 import moment from 'moment'
+import { required } from '../utils/validateForm'
 
 const submitTodo = (values, dispatch, props) => {
     dispatch(updateTodo(props.todo.id, values.text, values.highPriority, values.date))
@@ -33,10 +34,13 @@ let Todo = ({ filter, handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete
                 }}
                 >
                     <div className='container'>
-                        {todo.text}
-                        {todo.date ? <br/> : null}
-                        {todo.date}
-                        <br/>
+                        To do: {todo.text}
+                        {todo.date ?
+                            <div>
+                                Date: {todo.date}
+                            </div>
+                            : null
+                        }
                         <button
                             onClick={() => onTodoEdit(todo)}
                             className='btn btn-info btn-sm'
@@ -67,6 +71,7 @@ let Todo = ({ filter, handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete
                             type='text'
                             label='Edit todo'
                             component={renderField}
+                            validate={[required]}
                         />
                         <Field
                             name='highPriority'

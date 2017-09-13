@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ShoppingList from '../components/ShoppingList'
-import {subtractCost} from '../actions/index'
+import { subtractCost } from '../actions/spendingsActions'
 
 const mapStateToProps = (state) => ({
     totalCost: state.shopping.totalCost,

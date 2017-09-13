@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Todo from '../components/Todo'
 import { hasSubmitSucceeded } from 'redux-form'
-import { deleteTodo, toggleTodo, editTodo, todoResetEdit } from '../actions/index'
+import { deleteTodo, toggleTodo, editTodo, todoResetEdit } from '../actions/todoActions'
 
 const mapStateToProps = (state, ownProps) => ({
     filter: state.todos.filter,

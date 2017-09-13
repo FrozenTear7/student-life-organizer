@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateSpendings, subtractSpendings } from '../actions/index'
+import { updateSpendings, subtractSpendings } from '../actions/spendingsActions'
 import renderField from './renderField'
 import { reduxForm, Field, reset } from 'redux-form'
 import moment from 'moment'
+import {required, positiveNumber} from '../utils/validateForm'
 
 const moneyDaily = (money) => {
     const a = moment().endOf('month')
@@ -47,7 +48,8 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, 
                 Current daily spendings: {moneyDailyLeft(spendings.amountLeft)}
                 <br/>
                 <div className='container' style={{
-                    color: (countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))>=0.00) ? 'green' : 'red'
+                    color: (countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))>=0.00) ? 'green' : 'red',
+                    fontSize: '30px'
                 }}
                 >
                     Daily spendings difference: {(countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))).toFixed(2)}
@@ -64,13 +66,14 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, 
                 >
                     Reset spendings
                 </button>
-                <br/>
+                <br/><br/>
                 <form onSubmit={handleSubmit(submitSubtractSpendings)} >
                     <Field
                         name='subtractAmount'
                         type='number'
                         label='Subtract amount'
                         component={renderField}
+                        validate={[required, positiveNumber]}
                     />
                     <button
                         type='submit'
@@ -89,12 +92,14 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, 
                     type='number'
                     label='Edit amount'
                     component={renderField}
+                    validate={[required, positiveNumber]}
                 />
                 <Field
                     name='amountLeft'
                     type='number'
                     label='Edit amount left'
                     component={renderField}
+                    validate={[required, positiveNumber]}
                 />
                 <button
                     type='submit'
