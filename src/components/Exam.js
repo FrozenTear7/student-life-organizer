@@ -30,7 +30,7 @@ let Exam = ({ filter, handleSubmit, editedExam, exam, onExamGoBack, onExamDelete
                 <li className='list-group-item' key={exam.id} style={{
                     textDecoration: exam.completed ? 'line-through' : 'none',
                     color: exam.highPriority ? 'red' : 'black',
-                    backgroundColor: checkDateEnding(exam.date) ? '#f9ed43' : null
+                    backgroundColor: checkDateEnding(exam.date) ? '#f9c2ce' : null
                 }}
                 >
                     <div className='container'>
