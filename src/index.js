@@ -6,15 +6,15 @@ import { loadState, saveState } from './store/localStorage'
 import createStore from './store/createStore.js'
 import './styles/index.css'
 
-//const persistedState = loadState()
+const persistedState = loadState()
 const store = createStore(
-    //persistedState
+    persistedState
 )
-/*
+
 store.subscribe(() => {
     saveState(store.getState())
 })
-*/
+
 ReactDOM.render(
     <Provider store={store}>
         <AppContainer />
