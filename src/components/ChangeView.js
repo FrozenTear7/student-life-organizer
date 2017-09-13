@@ -34,10 +34,13 @@ let ChangeView = ({ view, onViewChange }) => {
             >
                 Shopping list
             </button>
-            <br/>
-            Active view:
-            <br/>
-            {view}
+            <ul className='list-group'>
+                <li className='list-group-item' style={{
+                    fontSize: '15px'
+                }}>
+                    Active view: {view}
+                </li>
+            </ul>
         </div>
     )
 }

@@ -47,6 +47,10 @@ let Exam = ({ filter, handleSubmit, editedExam, exam, onExamGoBack, onExamDelete
                             </div>
                             : null
                         }
+                        {(!exam.subject && !exam.date) ?
+                            <br/>
+                            : null
+                        }
                         <button
                             onClick={() => onExamEdit(exam)}
                             className='btn btn-info btn-sm'

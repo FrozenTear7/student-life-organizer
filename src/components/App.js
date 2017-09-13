@@ -17,7 +17,11 @@ const App = ({ view }) =>  {
         <div className='container-fluid'>
             <div className='text-center'>
                 <br/>
-                <h1>Welcome! Student life organizer will help you with your everyday tasks!</h1>
+                <div style={{
+                    fontSize: '45px'
+                }}>
+                    Welcome! Student life organizer will help you with your everyday tasks!
+                </div>
             </div>
             <br/>
             <div className='row'>

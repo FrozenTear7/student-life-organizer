@@ -23,8 +23,13 @@ const TodoFilter = ({ filter, onTodoShowAllClick, onTodoShowHighPriorityClick, o
             >
                 Show low priority
             </button>
-            <br/>
-            Active filter: {filter}
+            <ul className='list-group'>
+                <li className='list-group-item' style={{
+                    fontSize: '15px'
+                }}>
+                    Active filter: {filter}
+                </li>
+            </ul>
         </div>
     )
 }

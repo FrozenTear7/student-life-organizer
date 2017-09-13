@@ -60,7 +60,7 @@ let Shopping = ({ handleSubmit, editedShoppingItem, shoppingItem, onShoppingItem
                         type='number'
                         label='Amount'
                         component={renderField}
-                        validate={positiveNumber}
+                        validate={[required, positiveNumber]}
                     />
                     <Field
                         name='cost'

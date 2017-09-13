@@ -39,7 +39,7 @@ let Todo = ({ filter, handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete
                             <div>
                                 Date: {todo.date}
                             </div>
-                            : null
+                            : <br/>
                         }
                         <button
                             onClick={() => onTodoEdit(todo)}

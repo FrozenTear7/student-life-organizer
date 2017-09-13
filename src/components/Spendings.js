@@ -38,31 +38,37 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, 
     if(!spendings.edit) {
         return (
             <div className='container'>
-                Spendings for this month: {spendings.amount}
-                <br/>
-                Estimated daily spendings in this month: {moneyDaily(spendings.amount)}
-                <br/>
-                <br/>
-                Money left this month: {spendings.amountLeft}
-                <br/>
-                Current daily spendings: {moneyDailyLeft(spendings.amountLeft)}
-                <br/>
-                <div className='container' style={{
-                    color: (countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))>=0.00) ? 'green' : 'red',
-                    fontSize: '30px'
-                }}
+                <ul className='list-group'>
+                    <li className='list-group-item'>
+                        Money for this month: {spendings.amount}
+                    </li>
+                    <li className='list-group-item'>
+                        Estimated daily spendings in this month: {moneyDaily(spendings.amount)}
+                    </li>
+                    <li className='list-group-item'>
+                        Money left this month: {spendings.amountLeft}
+                    </li>
+                    <li className='list-group-item'>
+                        Current daily spendings: {moneyDailyLeft(spendings.amountLeft)}
+                    </li>
+                    <li className='list-group-item' style={{
+                        color: (countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))>=0.00) ? 'green' : 'red',
+                        fontSize: '30px'
+                    }}
                 >
                     Daily spendings difference: {(countDifference(moneyDaily(spendings.amount), moneyDailyLeft(spendings.amountLeft))).toFixed(2)}
-                </div>
+                </li>
+                </ul>
+                <br/>
                 <button
                     onClick={() => onSpendingsEdit()}
-                    className='btn btn-info btn-sm'
+                    className='btn btn-info'
                 >
-                    Edit
+                    Edit spendings
                 </button>
                 <button
                     onClick={() => onSpendingsDelete()}
-                    className='btn btn-danger btn-sm'
+                    className='btn btn-danger'
                 >
                     Reset spendings
                 </button>
@@ -99,7 +105,7 @@ let Spendings = ({ handleSubmit, spendings, onSpendingsEdit, onSpendingsDelete, 
                     type='number'
                     label='Edit amount left'
                     component={renderField}
-                    validate={[required, positiveNumber]}
+                    validate={required}
                 />
                 <button
                     type='submit'

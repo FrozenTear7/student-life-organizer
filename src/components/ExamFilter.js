@@ -23,10 +23,13 @@ const ExamFilter = ({ filter, onExamShowAllClick, onExamShowHighPriorityClick, o
             >
                 Show low priority
             </button>
-            <br/>
-            Active filter:
-            <br/>
-            {filter}
+            <ul className='list-group'>
+                <li className='list-group-item' style={{
+                    fontSize: '15px'
+                }}>
+                    Active filter: {filter}
+                </li>
+            </ul>
         </div>
     )
 }
