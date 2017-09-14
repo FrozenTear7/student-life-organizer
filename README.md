@@ -1,5 +1,7 @@
 # Student life organizer
 
+Use the app: https://frozentear7.github.io/student-life-organizer/
+
 Student life organizer is an app written in React, Redux and Bootstrap. It's an organizer, that can help you schedule your everyday tasks and track your spendings.
 
   - Add new todos and incoming exams
