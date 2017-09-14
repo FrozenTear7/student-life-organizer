@@ -27,7 +27,9 @@ const ExamFilter = ({ filter, onExamShowAllClick, onExamShowHighPriorityClick, o
                 <li className='list-group-item' style={{
                     fontSize: '15px'
                 }}>
-                    Active filter: {filter}
+                    Active filter:
+                    <br/>
+                    {filter}
                 </li>
             </ul>
         </div>

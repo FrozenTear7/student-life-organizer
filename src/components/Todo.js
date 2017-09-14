@@ -15,7 +15,7 @@ const submitTodo = (values, dispatch, props) => {
 
 const checkDateEnding = (endDate) => {
     const a = moment().format('YYYY-MM-DD')
-    const b = moment().add(-1, 'day').format('YYYY-MM-DD')
+    const b = moment().add(1, 'day').format('YYYY-MM-DD')
     if (a === endDate){
         return true
     } else if (b === endDate){
@@ -30,7 +30,7 @@ let Todo = ({ filter, handleSubmit, editedTodo, todo, onTodoGoBack, onTodoDelete
                 <li className='list-group-item' key={todo.id} style={{
                     textDecoration: todo.completed ? 'line-through' : 'none',
                     color: todo.highPriority ? 'red' : 'black',
-                    backgroundColor: checkDateEnding(todo.date) ? '#f9ed43' : null
+                    backgroundColor: checkDateEnding(todo.date) ? '#f9d4cc' : null
                 }}
                 >
                     <div className='container'>

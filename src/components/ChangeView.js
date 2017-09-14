@@ -38,7 +38,9 @@ let ChangeView = ({ view, onViewChange }) => {
                 <li className='list-group-item' style={{
                     fontSize: '15px'
                 }}>
-                    Active view: {view}
+                    Active view:
+                    <br/>
+                    {view}
                 </li>
             </ul>
         </div>

@@ -20,8 +20,9 @@ const App = ({ view }) =>  {
                 <div style={{
                     fontSize: '45px'
                 }}>
-                    Welcome! Student life organizer will help you with your everyday tasks!
+                    Student life organizer
                 </div>
+                <small>Manage your daily tasks, exams, shopping and spendings in one place!</small>
             </div>
             <br/>
             <div className='row'>

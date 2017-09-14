@@ -15,7 +15,7 @@ const submitExam = (values, dispatch, props) => {
 
 const checkDateEnding = (endDate) => {
     const a = moment().format('YYYY-MM-DD')
-    const b = moment().add(-1, 'day').format('YYYY-MM-DD')
+    const b = moment().add(1, 'day').format('YYYY-MM-DD')
     if (a === endDate){
         return true
     } else if (b === endDate){
@@ -30,7 +30,7 @@ let Exam = ({ filter, handleSubmit, editedExam, exam, onExamGoBack, onExamDelete
                 <li className='list-group-item' key={exam.id} style={{
                     textDecoration: exam.completed ? 'line-through' : 'none',
                     color: exam.highPriority ? 'red' : 'black',
-                    backgroundColor: checkDateEnding(exam.date) ? '#f9c2ce' : null
+                    backgroundColor: checkDateEnding(exam.date) ? '#f9d4cc' : null
                 }}
                 >
                     <div className='container'>
