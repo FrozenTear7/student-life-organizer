@@ -8,9 +8,6 @@ Student life organizer is an app written in React, Redux and Bootstrap. It's an 
   - Manage your shopping and spendings
   - Everything in one place! Use it either on your computer or smartphone!
 
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
 ### Installation
 
 If you want to run the app on your own local host instead of https://frozentear7.github.io/student-life-organizer/ :
